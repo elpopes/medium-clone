@@ -5,3 +5,24 @@ export const restoreSession = async () => {
   let data = await res.json();
   sessionStorage.setItem("currentUser", JSON.stringify(data.user));
 };
+
+async function csrfFetch(url, options = {}) {
+  options.method = options.method || "GET";
+  options.headers = options.header || {};
+
+  if (options.method.toUpperCase() !== "GET") {
+    if (
+      !options.headers["Content-Type"] &&
+      !(options.body instanceof FormData)
+    ) {
+      options.headers["Content-Type"] = "application/json";
+    }
+    options.headers["X-CSRF-Token"] = sessionStorage.getItem("X-CSRF-Token");
+  }
+
+  const res = await fetch(url, options);
+  if (res.status >= 400) throw res;
+  return res;
+}
+
+export default csrfFetch;
