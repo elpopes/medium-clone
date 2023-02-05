@@ -13,6 +13,7 @@ class User < ApplicationRecord
     attr_reader :password
 
     def self.find_by_credentials(credential, password)
+        debugger
         field = credential =~ URI::MailTo::EMAIL_REGEXP ? :email : :username
         user = User.find_by(field => credential)
         user&.authenticate(password)
