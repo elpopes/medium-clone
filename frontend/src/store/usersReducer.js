@@ -1,4 +1,5 @@
-//
+import csrfFetch from "./csrf.js";
+
 export const RECEIVE_USERS = "users/RECEIVE_USERS";
 export const receiveUsers = (users) => ({
   type: RECEIVE_USERS,
@@ -43,14 +44,33 @@ export const fetchUser = (userId) => async (dispatch) => {
   }
 };
 
-export const createUser = (user) => (dispatch) => {
-  return fetch("/api/users", {
+export const loginUser = (user) => async (dispatch) => {
+  let res = await csrfFetch("/api/session", {
     method: "POST",
     body: JSON.stringify(user),
-    headers: { "Content-Type": "application/json" },
-  })
-    .then((res) => res.json())
-    .then((user) => dispatch(receiveUser(user)));
+  });
+  let data = await res.json();
+  sessionStorage.setItem("currentUser", JSON.stringify(data.user));
+  debugger;
+  dispatch(receiveUser(data.user));
+};
+
+export const logoutUser = (userId) => async (dispatch) => {
+  let res = await csrfFetch("/api/session", {
+    method: "DELETE",
+  });
+  sessionStorage.setItem("currentUser", null);
+  dispatch(removeUser(userId));
+};
+
+export const createUser = (user) => async (dispatch) => {
+  let res = await csrfFetch("/api/users", {
+    method: "POST",
+    body: JSON.stringify(user),
+  });
+  let data = await res.json();
+  sessionStorage.setItem("currentUser", JSON.stringify(data.user));
+  dispatch(receiveUser(data.user));
 };
 
 export const updateUser = (user) => (dispatch) => {
