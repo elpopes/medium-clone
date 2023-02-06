@@ -1,6 +1,8 @@
 import React from "react";
 import * as sessionActions from "../../store/session";
 import { useInput, useSubmit } from "../../hooks/hooks";
+import { useDispatch } from "react-redux";
+import { loginUser } from "../../store/usersReducer";
 
 function LoginForm({ onSuccess }) {
   const [password, onPasswordChange] = useInput("");
@@ -9,9 +11,15 @@ function LoginForm({ onSuccess }) {
     onSuccess,
     action: sessionActions.login({ credential, password }),
   });
+  const dispatch = useDispatch();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    debugger;
+    dispatch(loginUser({ credential, password }));
+  };
 
   return (
-    <form className="form" onSubmit={onSubmit}>
+    <form className="form" onSubmit={handleSubmit}>
       <ul className="form-errors">
         {errors.map((error) => (
           <li key={error}>{error}</li>
