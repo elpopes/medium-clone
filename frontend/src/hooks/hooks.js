@@ -7,39 +7,36 @@ export const useInput = (initialValue) => {
   return [value, onChange];
 };
 
-export const useSubmit = ({ createAction, action, validate, onSuccess }) => {
+export function useSubmit({ createAction, action, validate, onSuccess }) {
   const dispatch = useDispatch();
   const [errors, setErrors] = useState([]);
 
-  action = action || (createAction ? createAction() : undefined);
+  if (!action) {
+    action = createAction?.();
+  }
 
   const onSubmit = async (e) => {
     e.preventDefault();
 
-    const errors = validate ? validate() : undefined;
+    const errors = validate?.();
     if (errors) {
       setErrors(errors);
-      return;
-    }
-    setErrors([]);
-
-    try {
-      const res = await dispatch(action);
-      const data = await res
-        .clone()
-        .json()
-        .catch(() => res.text());
-
-      if (data?.errors) {
-        setErrors(data.errors);
-      } else {
-        setErrors([]);
-        onSuccess?.(data || res.statusText);
-      }
-    } catch (error) {
-      setErrors([error]);
+    } else {
+      setErrors([]);
+      return dispatch(action).then(onSuccess, async (res) => {
+        let data;
+        try {
+          // .clone() essentially allows you to read the response body twice
+          data = await res.clone().json();
+        } catch {
+          data = await res.text(); // Will hit this case if, e.g., server is down
+        }
+        if (data?.errors) setErrors(data.errors);
+        else if (data) setErrors([data]);
+        else setErrors([res.statusText]);
+      });
     }
   };
 
   return [errors, onSubmit];
-};
+}
