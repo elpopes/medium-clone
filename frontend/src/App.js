@@ -1,12 +1,15 @@
 import SignedOutNav from "./components/signedOutNav/index";
 import { BrowserRouter as Router } from "react-router-dom";
+import LoginForm from "./components/LoginFormModel/LoginForm";
 
 function App() {
   return (
     <>
       <Router>
         <SignedOutNav />
-        <h1>Hello from Medium-Earth</h1>
+        <LoginForm>
+          <h1>Hello from Medium-Earth</h1>
+        </LoginForm>
       </Router>
     </>
   );
