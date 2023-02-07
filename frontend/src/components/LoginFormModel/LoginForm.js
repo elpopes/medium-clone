@@ -3,6 +3,7 @@ import * as sessionActions from "../../store/session";
 import { useInput, useSubmit } from "../../hooks/hooks";
 import { useDispatch } from "react-redux";
 import { loginUser } from "../../store/usersReducer";
+import "./LoginForm.css";
 
 function LoginForm({ onSuccess }) {
   const [password, onPasswordChange] = useInput("");
@@ -20,6 +21,7 @@ function LoginForm({ onSuccess }) {
 
   return (
     <form className="form" onSubmit={handleSubmit}>
+      <h1>Welcome back.</h1>
       <ul className="form-errors">
         {errors.map((error) => (
           <li key={error}>{error}</li>
