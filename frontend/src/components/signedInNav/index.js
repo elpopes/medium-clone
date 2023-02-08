@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import SearchBar from "../SearchBar";
+import "./signedinNav.css";
 
 const SignedInNav = () => {
   return (
-    <nav className="nav-wrapper">
+    <nav className="s-nav-wrapper">
       <div className="container">
         <div className="left-side">
           <div className="nav-logo">
@@ -13,7 +14,7 @@ const SignedInNav = () => {
           <SearchBar />
         </div>
         <div className="spacer"></div>
-        <div className="nav-links">
+        <div className="s-nav-links">
           <Link to="/">Write</Link>
           <Link to="/">Notifications</Link>
           <Link to="/">Profile</Link>

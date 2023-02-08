@@ -1,0 +1,16 @@
+.search-bar {
+  width: 200px;
+  height: 35px;
+  padding-left: 30px;
+  border-radius: 50%;
+  border: 1px solid #fff;
+}
+
+.search-input {
+  border-radius: 50%;
+  border: 1px solid #fff;
+  background-color: rgb(236, 238, 239);
+  font-size: 12px;
+  padding: 12px;
+  width: 100%;
+}
