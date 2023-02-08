@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import SearchBar from "../SearchBar";
 import "./signedinNav.css";
+import ProfileDropDown from "../ProfileDropDown";
 
 const SignedInNav = () => {
   return (
@@ -17,7 +18,7 @@ const SignedInNav = () => {
         <div className="s-nav-links">
           <Link to="/">Write</Link>
           <Link to="/">Notifications</Link>
-          <Link to="/">Profile</Link>
+          <ProfileDropDown />
         </div>
       </div>
     </nav>
