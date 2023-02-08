@@ -1,0 +1,10 @@
+.sign-up-button {
+  background-color: black;
+  color: white;
+  border-radius: 50px;
+  padding: 10px 20px;
+  border: none;
+  font-weight: bold;
+  /* cursor: pointer; */
+  margin-left: 20px;
+}

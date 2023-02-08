@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: medium_clone_production
-  username: medium_clone
-  password: <%= ENV["MEDIUM_CLONE_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>

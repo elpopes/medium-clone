@@ -36,7 +36,7 @@
   text-decoration: none;
 }
 
-.get-started-button {
+/* .get-started-button {
   background-color: black;
   color: white;
   border-radius: 50px;
@@ -45,7 +45,7 @@
   font-weight: bold;
   cursor: pointer;
   margin-left: 20px;
-}
+} */
 
 @media (max-width: 767px) {
   .nav-link {

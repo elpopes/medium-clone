@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "./SignedOutNav.css";
 import LoginButton from "../LogInButton";
 import LoginForm from "../LoginFormModel/LoginForm";
+import SignUpButton from "../SignUpButton";
 
 const SignedOutNav = () => {
   return (
@@ -24,9 +25,10 @@ const SignedOutNav = () => {
             Write
           </Link>
           <LoginButton></LoginButton>
-          <button className="get-started-button" onClick={LoginForm}>
+          <SignUpButton></SignUpButton>
+          {/* <button className="get-started-button" onClick={LoginForm}>
             Get Started
-          </button>
+          </button> */}
         </div>
       </div>
     </nav>

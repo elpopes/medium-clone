@@ -7,5 +7,28 @@
   },
   "devDependencies": {
     "redux-logger": "^3.0.6"
-  }
+  },
+  "name": "medium-clone",
+  "version": "1.0.0",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "build": "npm install --prefix frontend && npm run build --prefix frontend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elpopes/medium-clone.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elpopes/medium-clone/issues"
+  },
+  "homepage": "https://github.com/elpopes/medium-clone#readme",
+  "description": "",
+  "engines": {
+    "node": "16.x"
+    }
 }
