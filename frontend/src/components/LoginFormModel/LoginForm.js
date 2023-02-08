@@ -16,8 +16,8 @@ function LoginForm({ onSuccess }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    debugger;
     dispatch(loginUser({ credential, password }));
+    window.location.reload();
   };
 
   return (
