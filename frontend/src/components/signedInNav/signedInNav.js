@@ -1,30 +1,26 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-
+import React from "react";
+import { Link } from "react-router-dom";
+import SearchBar from "../SearchBar";
 
 const SignedInNav = () => {
-    const launchModal = () => {
-    };
-    
-    return (
-        <nav className='nav-wrapper'>
-        <div className='container'>
-            <div className='nav-logo'>
-            <Link to='/'>Medium-Earth</Link>
-            </div>
-            <div className='spacer'></div>
-            <div className='nav-links'>
-            <Link to='/'>Our Story</Link>
-            <Link to='/'>Fellowship</Link>
-            <Link to='/'>Write</Link>
-            <Link to='/'>Sign In</Link>
-            <button onClick={launchModal}>Get Started</button>
-            </div>
+  return (
+    <nav className="nav-wrapper">
+      <div className="container">
+        <div className="left-side">
+          <div className="nav-logo">
+            <Link to="/">Medium-Earth</Link>
+          </div>
+          <SearchBar />
         </div>
-        </nav>
-    );
-    }
+        <div className="spacer"></div>
+        <div className="nav-links">
+          <Link to="/">Write</Link>
+          <Link to="/">Notifications</Link>
+          <Link to="/">Profile</Link>
+        </div>
+      </div>
+    </nav>
+  );
+};
 
 export default SignedInNav;
-
