@@ -1,27 +1,27 @@
 import React from "react";
 import * as sessionActions from "../../store/session";
 import { useInput, useSubmit } from "../../hooks/hooks";
-import { useDispatch } from "react-redux";
-import { loginUser } from "../../store/usersReducer";
 import "./LoginForm.css";
+import { useDispatch } from "react-redux";
+// import DemoUser from "../DemoUser";
 
-function LoginForm({ onSuccess }) {
+function LoginForm() {
   const [password, onPasswordChange] = useInput("");
   const [credential, onCredentialChange] = useInput("");
-  const [errors, onSubmit] = useSubmit({
-    onSuccess,
+  const [errors, onFormSubmit] = useSubmit({
     action: sessionActions.login({ credential, password }),
   });
+
   const dispatch = useDispatch();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch(loginUser({ credential, password }));
-    window.location.reload();
+  const handleDemoUser = () => {
+    dispatch(
+      sessionActions.login({ credential: "theGrey", password: "password" })
+    );
   };
 
   return (
-    <form className="form" onSubmit={handleSubmit}>
+    <form className="form" onSubmit={onFormSubmit}>
       <h1>Welcome back.</h1>
       <ul className="form-errors">
         {errors.map((error) => (
@@ -45,6 +45,11 @@ function LoginForm({ onSuccess }) {
         required
       />
       <button type="submit">Log In</button>
+      <br />
+      <br />
+      <button type="button" onClick={handleDemoUser}>
+        Be the wiz
+      </button>
     </form>
   );
 }
