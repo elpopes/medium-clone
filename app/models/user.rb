@@ -6,14 +6,15 @@ class User < ApplicationRecord
     length: { in: 3..20 }, 
     format: { without: URI::MailTo::EMAIL_REGEXP, message:  "can't be an email" }
     validates :email, 
-    uniqueness: true, 
-    format: { with: URI::MailTo::EMAIL_REGEXP }
+    uniqueness: true
+    # format: { with: URI::MailTo::EMAIL_REGEXP }
     validates :password_digest, presence: true
     validates :password, length: {minimum: 6, allow_nil: true}
     attr_reader :password
+    validates :l_name, :f_name, presence: true
 
     def self.find_by_credentials(credential, password)
-        debugger
+
         field = credential =~ URI::MailTo::EMAIL_REGEXP ? :email : :username
         user = User.find_by(field => credential)
         user&.authenticate(password)

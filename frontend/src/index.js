@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./reset.css";
 import "./index.css";
+import { BrowserRouter as Router } from "react-router-dom";
+import { ModalProvider } from "./context/Modal";
 import App from "./App";
 import configureStore from "./store";
 import { restoreSession } from "./store/csrf";
@@ -29,11 +31,13 @@ window.logoutUser = logoutUser;
 
 const InitializeApp = () => {
   ReactDOM.render(
-    <React.StrictMode>
+    <ModalProvider>
       <Provider store={store}>
-        <App />
+        <Router>
+          <App />
+        </Router>
       </Provider>
-    </React.StrictMode>,
+    </ModalProvider>,
     document.getElementById("root")
   );
 };

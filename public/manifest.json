@@ -1,6 +1,6 @@
 {
-  "short_name": "Medium-Earth",
-  "name": "Medium-Earth, A Medium Clone",
+  "short_name": "React Template",
+  "name": "Create React App Template",
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",

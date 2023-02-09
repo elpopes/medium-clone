@@ -1,0 +1,43 @@
+.hero-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 40vh;
+  background-size: cover;
+  background-color: rgb(255, 189, 8);
+  border-bottom: 1px solid black;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: rgb(0, 0, 0);
+  padding: 3rem;
+}
+
+.text h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 106px;
+  margin-bottom: 1rem;
+}
+
+.text h3 {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.sign-in-button {
+  padding: 1rem 2rem;
+  background-color: black;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 50px;
+}
+
+.animation {
+  width: 50%;
+  height: 100%;
+}

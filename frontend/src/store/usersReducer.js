@@ -45,13 +45,14 @@ export const fetchUser = (userId) => async (dispatch) => {
 };
 
 export const loginUser = (user) => async (dispatch) => {
+
   let res = await csrfFetch("/api/session", {
     method: "POST",
     body: JSON.stringify(user),
   });
   let data = await res.json();
   sessionStorage.setItem("currentUser", JSON.stringify(data.user));
-  debugger;
+
   dispatch(receiveUser(data.user));
 };
 

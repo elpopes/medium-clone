@@ -1,0 +1,26 @@
+.search-bar {
+  width: 250px;
+  height: 35px;
+  padding-left: 30px;
+  border: 1px solid #fff;
+}
+
+.input-with-icon {
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  border-radius: 25px;
+  border: 1px solid #fff;
+  background-color: rgb(236, 238, 239);
+  font-size: 12px;
+  padding: 12px;
+  width: 100%;
+  padding-left: 45px;
+}
+
+.magnifying-glass {
+  margin-right: -30px;
+  z-index: 1;
+}

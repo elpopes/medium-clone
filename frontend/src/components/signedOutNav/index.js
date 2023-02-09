@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { connect } from "react-redux";
+// import { connect } from "react-redux";
 import "./SignedOutNav.css";
+import LoginButton from "../LogInButton";
+import LoginForm from "../LoginFormModel/LoginForm";
+import SignUpButton from "../SignUpButton";
 
 const SignedOutNav = () => {
-  const launchModal = () => {};
-
   return (
     <nav className="nav-wrapper">
       <div className="container">
@@ -23,12 +24,11 @@ const SignedOutNav = () => {
           <Link className="nav-link" to="/">
             Write
           </Link>
-          <Link className="nav-link" to="/">
-            Sign In
-          </Link>
-          <button className="get-started-button" onClick={launchModal}>
+          <LoginButton></LoginButton>
+          <SignUpButton></SignUpButton>
+          {/* <button className="get-started-button" onClick={LoginForm}>
             Get Started
-          </button>
+          </button> */}
         </div>
       </div>
     </nav>

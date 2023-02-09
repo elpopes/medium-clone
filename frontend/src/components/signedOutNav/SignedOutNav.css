@@ -3,7 +3,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 20px;
+  padding: 20px 20px;
+  border-bottom: 1px solid black;
 }
 
 .container {
@@ -26,15 +27,16 @@
 .nav-links {
   display: flex;
   align-items: center;
+  font-size: 14px;
 }
 
 .nav-link {
   color: black;
-  margin-right: 20px;
+  margin-right: 30px;
   text-decoration: none;
 }
 
-.get-started-button {
+/* .get-started-button {
   background-color: black;
   color: white;
   border-radius: 50px;
@@ -43,7 +45,7 @@
   font-weight: bold;
   cursor: pointer;
   margin-left: 20px;
-}
+} */
 
 @media (max-width: 767px) {
   .nav-link {
