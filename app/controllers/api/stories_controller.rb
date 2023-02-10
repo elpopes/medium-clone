@@ -1,8 +1,9 @@
-class StoriesController < ApplicationController
+class Api::StoriesController < ApplicationController
     before_action :require_logged_in, except: [:show, :index]
   
     def index
       @stories = Story.all
+      render :index
     end
   
     def show
