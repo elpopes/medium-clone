@@ -1,5 +1,13 @@
 class Api::AvatarsController < ApplicationController
     def index
-        @avatars = Post.all.sort { |a,b| b.created_at <=> a.created_at }
+        @avatars = Avatar.all
+        render :index
     end
+
+    def show
+        @avatar = Avatar.find_by(user_id: params[:id])
+        # debugger
+        render :show
+    end
+    
 end

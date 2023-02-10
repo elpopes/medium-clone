@@ -9,7 +9,7 @@ const StoriesIndex = () => {
   const stories = useSelector(getStories);
   useEffect(() => {
     dispatch(fetchStories());
-  }, []);
+  }, [dispatch]);
   return (
     <>
       <ul>
