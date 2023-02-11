@@ -11,7 +11,9 @@ const SignedOutNav = () => {
     <nav className="nav-wrapper">
       <div className="container">
         <div className="nav-logo">
-          <Link to="/">Medium-Earth</Link>
+          <Link to="/">
+            <img src={require("./logo.png")} alt="Logo" />
+          </Link>
         </div>
         <div className="spacer"></div>
         <div className="nav-links">
