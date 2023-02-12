@@ -3,6 +3,7 @@ import { logout } from "../../store/session";
 import { useDispatch } from "react-redux";
 import UserAvatar from "../Avatar/UserAvatar";
 import "./ProfileDropDown.css";
+import SignOutButton from "../SignOutButton";
 
 const ProfileDropDown = () => {
   const [showDropDown, setShowDropDown] = useState(false);
@@ -48,9 +49,7 @@ const ProfileDropDown = () => {
             <li>Apply to the Partner Program</li>
             <li>Gift a membership</li>
           </div>
-          <div className="sign-out">
-            <button onClick={() => dispatch(logout())}>Sign Out</button>
-          </div>
+          <SignOutButton />
           <div className="footie">
             <li>Help</li>
             <li>Status</li>

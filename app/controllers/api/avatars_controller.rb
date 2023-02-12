@@ -9,5 +9,16 @@ class Api::AvatarsController < ApplicationController
         # debugger
         render :show
     end
+
+    def create
+        debugger
+        @avatar = Avatar.new(story_params)
+
+        if @avatar.save
+            render :show, status: :created_at
+        else
+            render json: @avatar.errors, status: :unprocessable_entity
+        end
+    end
     
 end

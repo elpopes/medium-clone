@@ -48,7 +48,7 @@ function LoginForm() {
       <br />
       <br />
       <button type="button" onClick={handleDemoUser}>
-        Be the wiz
+        Demo User
       </button>
     </form>
   );
