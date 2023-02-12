@@ -25,6 +25,7 @@ if (currentUser) {
 
 const store = configureStore(initialState);
 
+window.store = store;
 window.createUser = createUser;
 window.loginUser = loginUser;
 window.logoutUser = logoutUser;

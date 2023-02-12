@@ -1,10 +1,17 @@
 .profile-dropdown {
   position: relative;
-  display: inline-block;
+  display: flex;
+  align-items: center;
 }
 
 .profile-dropdown-toggle {
   cursor: pointer;
+}
+
+.profile-dropdown .user-avatar {
+  width: 32px;
+  height: 32px;
+  margin-right: 10px;
 }
 
 .profile-dropdown-menu {
@@ -12,12 +19,20 @@
   top: 100%;
   right: 0;
   display: none;
+  width: 280px;
+  height: 600px;
   margin: 0;
-  padding: 0;
+  /* padding: 20px; */
   list-style: none;
   background-color: #fff;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
   z-index: 1;
+}
+
+.profile-dropdown-menu > div {
+  border-bottom: 1px solid #ddd;
+  padding: 20px;
 }
 
 .profile-dropdown:hover .profile-dropdown-menu {
@@ -34,3 +49,7 @@
 .profile-dropdown-menu a:hover {
   background-color: #f2f2f2;
 }
+
+/* .profile-dropdown-menu > li {
+  padding: 20px;
+} */

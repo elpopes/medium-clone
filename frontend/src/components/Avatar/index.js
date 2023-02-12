@@ -1,13 +1,10 @@
-// Should be able to pull the image for the given userId.
-// Create a default export component that returns an avatar based on the user_id.
-
 import React from "react";
-import { fetchAvatar } from "../../store/avatarsReducer";
+import { fetchAvatar, getAvatar } from "../../store/avatarsReducer";
 import { useDispatch, useSelector } from "react-redux";
 
 const AvatarItem = ({ userId }) => {
   const dispatch = useDispatch();
-  const avatar = useSelector((state) => state.avatars[userId]);
+  const avatar = useSelector((state) => getAvatar(userId)(state));
 
   React.useEffect(() => {
     if (userId) {
@@ -15,8 +12,7 @@ const AvatarItem = ({ userId }) => {
     }
   }, [dispatch, userId]);
 
-  if (!avatar) return null;
-
+  if (!avatar) return <img src="./default.jpg" alt="default avatar" />;
   return <img src={avatar.avatar.photoUrl} alt="avatar" />;
 };
 

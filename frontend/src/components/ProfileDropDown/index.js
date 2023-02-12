@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { logout } from "../../store/session";
 import { useDispatch } from "react-redux";
+import UserAvatar from "../Avatar/UserAvatar";
+import "./ProfileDropDown.css";
 
 const ProfileDropDown = () => {
   const [showDropDown, setShowDropDown] = useState(false);
@@ -24,16 +26,42 @@ const ProfileDropDown = () => {
 
   return (
     <div className="profile-dropdown">
+      <UserAvatar />
       <div className="profile-dropdown-toggle" onClick={toggleDropDown}>
         <i className="fa fa-caret-down" />
       </div>
       {showDropDown && (
         <ul className="profile-dropdown-menu">
-          <li>Profile</li>
-          <li>Lists</li>
-          <li>Stories</li>
-          <li>Stats</li>
-          <button onClick={() => dispatch(logout())}>Sign Out</button>
+          <div className="navigation">
+            <li>Profile</li>
+            <li>Lists</li>
+            <li>Stories</li>
+            <li>Stats</li>
+          </div>
+          <div className="settings">
+            <li>Settings</li>
+            <li>Refine recommendations</li>
+            <li>Manage publications</li>
+          </div>
+          <div className="members">
+            <li>Become a member</li>
+            <li>Apply to the Partner Program</li>
+            <li>Gift a membership</li>
+          </div>
+          <div className="sign-out">
+            <button onClick={() => dispatch(logout())}>Sign Out</button>
+          </div>
+          <div className="footie">
+            <li>Help</li>
+            <li>Status</li>
+            <li>Writers</li>
+            <li>Blog</li>
+            <li>Careers</li>
+            <li>Privacy</li>
+            <li>Terms</li>
+            <li>About</li>
+            <li>Text to Speech</li>
+          </div>
         </ul>
       )}
     </div>

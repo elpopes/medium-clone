@@ -1,0 +1,60 @@
+.trending-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 60px 40px 30px 180px;
+}
+
+.trending-container h1 {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  line-height: S 20px;
+  width: 400px;
+}
+
+.trendingItem {
+  width: 400px;
+}
+
+.trending-container h2 {
+  width: 400px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+ol {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+ol li {
+  display: flex;
+  align-items: center;
+  width: calc(33.33% - 20px);
+  margin-bottom: 40px;
+}
+
+.numbers {
+  font-size: 30px;
+  color: lightgray;
+  margin-right: 10px;
+  padding-top: 0;
+  align-self: flex-start;
+}
+
+@media (max-width: 991px) {
+  ol li {
+    width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 767px) {
+  ol li {
+    width: 100%;
+  }
+}

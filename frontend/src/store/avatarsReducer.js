@@ -23,9 +23,7 @@ export const getAvatars = (state) => {
 
 export const getAvatar = (userId) => (state) => {
   if (!state.avatars) return null;
-  return state.avatars.filter((avatar) => {
-    return avatar.userId === userId;
-  })[0];
+  return state.avatars[userId];
 };
 
 export const fetchAvatars = () => async (dispatch) => {

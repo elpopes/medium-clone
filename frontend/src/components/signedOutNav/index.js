@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 // import { connect } from "react-redux";
 import "./SignedOutNav.css";
 import LoginButton from "../LogInButton";
-import LoginForm from "../LoginFormModel/LoginForm";
+
 import SignUpButton from "../SignUpButton";
 
 const SignedOutNav = () => {
@@ -28,9 +28,6 @@ const SignedOutNav = () => {
           </Link>
           <LoginButton></LoginButton>
           <SignUpButton></SignUpButton>
-          {/* <button className="get-started-button" onClick={LoginForm}>
-            Get Started
-          </button> */}
         </div>
       </div>
     </nav>

@@ -1,11 +1,11 @@
 import SignedInNav from "../signedInNav";
-import UploadAvatar from "../Avatar/uploadAvatar";
+import UserAvatar from "../Avatar/UserAvatar";
 
 const HomePage = () => {
   return (
     <>
       <SignedInNav />
-      <UploadAvatar />
+      <UserAvatar />
     </>
   );
 };
