@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { logout } from "../../store/session";
-import { useDispatch } from "react-redux";
 import UserAvatar from "../Avatar/UserAvatar";
 import "./ProfileDropDown.css";
 import SignOutButton from "../SignOutButton";
 
 const ProfileDropDown = () => {
   const [showDropDown, setShowDropDown] = useState(false);
-  const dispatch = useDispatch();
 
   const toggleDropDown = () => setShowDropDown(!showDropDown);
 
@@ -26,10 +23,10 @@ const ProfileDropDown = () => {
   }, [showDropDown]);
 
   return (
-    <div className="profile-dropdown">
+    <div className="profile-dropdown" onClick={toggleDropDown}>
       <UserAvatar />
-      <div className="profile-dropdown-toggle" onClick={toggleDropDown}>
-        <i className="fa fa-caret-down" />
+      <div className="profile-dropdown-toggle">
+        <i className="fa fa-chevron-down" />
       </div>
       {showDropDown && (
         <ul className="profile-dropdown-menu">

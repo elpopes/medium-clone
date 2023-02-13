@@ -1,4 +1,4 @@
-class Api::StoriesController < ApplicationController
+ class Api::StoriesController < ApplicationController
     before_action :require_logged_in, except: [:show, :index]
   
     def index
@@ -17,7 +17,7 @@ class Api::StoriesController < ApplicationController
     def create
       @story = Story.new(story_params)
       if @story.save
-        render :show, status: :created_at
+        render :show
       else
         render json: @story.errors, status: :unprocessable_entity
       end

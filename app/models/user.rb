@@ -14,6 +14,7 @@ class User < ApplicationRecord
     validates :l_name, :f_name, presence: true
 
     has_one :avatar
+    has_many :stories
 
 
     def self.find_by_credentials(credential, password)

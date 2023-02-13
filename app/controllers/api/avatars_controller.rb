@@ -11,7 +11,6 @@ class Api::AvatarsController < ApplicationController
     end
 
     def create
-        debugger
         @avatar = Avatar.new(story_params)
 
         if @avatar.save

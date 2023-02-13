@@ -22,11 +22,13 @@
   height: 100%;
 }
 
-.nav-logo {
+.s-nav-logo {
   padding-left: 20px;
-  font-size: 20px;
-  font-weight: bold;
   margin-right: 10px;
+}
+
+.s-nav-logo img {
+  width: 44px;
 }
 
 .spacer {
@@ -38,8 +40,16 @@
   align-items: center;
 }
 
-.s-nav-links a {
-  margin-left: 20px;
-  text-decoration: none;
+span {
+  font-size: 14px;
+}
+
+.s-nav-links a:hover {
   color: black;
+}
+
+.s-nav-links a {
+  margin-left: 40px;
+  text-decoration: none;
+  color: rgb(133, 133, 133);
 }

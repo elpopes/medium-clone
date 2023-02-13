@@ -1,4 +1,5 @@
-//
+import csrfFetch from "./csrf.js";
+
 export const RECEIVE_STORIES = "stories/RECEIVE_STORIES";
 export const receiveStories = (stories) => ({
   type: RECEIVE_STORIES,
@@ -18,6 +19,7 @@ export const removeStory = (storyId) => ({
 });
 
 export const getStories = (state) => {
+  //   debugger;
   if (!state.stories) return [];
   return Object.values(state.stories);
 };
@@ -28,15 +30,19 @@ export const getStory = (storyId) => (state) => {
 };
 
 export const fetchStories = () => async (dispatch) => {
-  const res = await fetch("api/stories");
+  const res = await csrfFetch("api/stories");
+  //   debugger;
+  //   debugger;
   if (res.ok) {
+    // debugger;
     const stories = await res.json();
+    // debugger;
     dispatch(receiveStories(stories));
   }
 };
 
 export const fetchStory = (storyId) => async (dispatch) => {
-  const res = await fetch(`api/stories/${storyId}`);
+  const res = await csrfFetch(`api/stories/${storyId}`);
   if (res.ok) {
     const story = await res.json();
     dispatch(receiveStory(story));
@@ -44,7 +50,7 @@ export const fetchStory = (storyId) => async (dispatch) => {
 };
 
 export const createStory = (story) => (dispatch) => {
-  return fetch("/api/stories", {
+  return csrfFetch("/api/stories", {
     method: "POST",
     body: JSON.stringify(story),
     headers: { "Content-Type": "application/json" },

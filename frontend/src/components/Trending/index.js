@@ -8,6 +8,7 @@ import "./Trending.css";
 const Trending = () => {
   const dispatch = useDispatch();
   const stories = useSelector(getStories);
+
   useEffect(() => {
     dispatch(fetchStories());
   }, [dispatch]);

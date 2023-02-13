@@ -9,15 +9,22 @@ const SignedInNav = () => {
     <nav className="s-nav-wrapper">
       <div className="container">
         <div className="left-side">
-          <div className="nav-logo">
-            <Link to="/">Medium-Earth</Link>
+          <div className="s-nav-logo">
+            <Link to="/">
+              <img src={require("./logo.png")} alt="Logo" />
+            </Link>
           </div>
           <SearchBar />
         </div>
         <div className="spacer"></div>
         <div className="s-nav-links">
-          <Link to="/">Write</Link>
-          <Link to="/">Notifications</Link>
+          <Link to="/new-story">
+            <i className="fa-regular fa-pen-to-square" />
+            <span> Write</span>
+          </Link>
+          <Link to="/">
+            <i className="fa-regular fa-bell" />
+          </Link>
           <ProfileDropDown />
         </div>
       </div>

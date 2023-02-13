@@ -2,6 +2,8 @@
   position: relative;
   display: flex;
   align-items: center;
+
+  padding-left: 50px;
 }
 
 .profile-dropdown-toggle {
@@ -14,6 +16,10 @@
   margin-right: 10px;
 }
 
+.fa-chevron-down {
+  color: rgb(133, 133, 133);
+}
+
 .profile-dropdown-menu {
   position: absolute;
   top: 100%;
@@ -22,12 +28,13 @@
   width: 280px;
   height: 600px;
   margin: 0;
-  /* padding: 20px; */
+  margin-top: 8px;
   list-style: none;
   background-color: #fff;
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   z-index: 1;
+  color: rgb(82, 82, 82);
 }
 
 .profile-dropdown-menu > div {
@@ -47,9 +54,5 @@
 }
 
 .profile-dropdown-menu a:hover {
-  background-color: #f2f2f2;
+  color: rgb(82, 82, 82);
 }
-
-/* .profile-dropdown-menu > li {
-  padding: 20px;
-} */
