@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import UserAvatar from "../Avatar/UserAvatar";
 import "./ProfileDropDown.css";
 import SignOutButton from "../SignOutButton";
+import { Link } from "react-router-dom";
 
 const ProfileDropDown = () => {
   const [showDropDown, setShowDropDown] = useState(false);
@@ -43,8 +44,10 @@ const ProfileDropDown = () => {
               <span>Lists</span>
             </li>
             <li>
-              <i class="fa-regular fa-file-lines"></i>
-              <span>Stories</span>
+              <Link className="dropdown-links" to="/me-stories">
+                <i class="fa-regular fa-file-lines"></i>
+                <span>Stories</span>
+              </Link>
             </li>
             <li>
               <i class="fa-solid fa-chart-line"></i>
