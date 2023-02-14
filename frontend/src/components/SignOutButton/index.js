@@ -8,7 +8,7 @@ const SignOutButton = () => {
   //   debugger;
   return (
     <div className="sign-out">
-      <button onClick={() => dispatch(logout())}>Sign Out</button>
+      <button onClick={() => dispatch(logout())}>Sign out</button>
       <div className="sign-out-email">{currentUser.email}</div>
     </div>
   );

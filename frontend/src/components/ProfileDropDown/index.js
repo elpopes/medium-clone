@@ -29,12 +29,27 @@ const ProfileDropDown = () => {
         <i className="fa fa-chevron-down" />
       </div>
       {showDropDown && (
-        <ul className="profile-dropdown-menu">
+        <ul
+          className="profile-dropdown-menu"
+          style={{ display: showDropDown ? "block" : "none" }}
+        >
           <div className="navigation">
-            <li>Profile</li>
-            <li>Lists</li>
-            <li>Stories</li>
-            <li>Stats</li>
+            <li>
+              <i class="fa-regular fa-user"></i>
+              <span>Profile</span>
+            </li>
+            <li>
+              <i class="fa-regular fa-bookmark"></i>
+              <span>Lists</span>
+            </li>
+            <li>
+              <i class="fa-regular fa-file-lines"></i>
+              <span>Stories</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-chart-line"></i>
+              <span>Stats</span>
+            </li>
           </div>
           <div className="settings">
             <li>Settings</li>
