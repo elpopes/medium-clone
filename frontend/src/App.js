@@ -10,8 +10,10 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path="/new-story" component={StoryFormPage} />
-        <Route exact path="/me-stories/" component={MyStoriesIndex} />
+        <Route path="/new-story" component={StoryFormPage} />
+        <Route path="/me-stories/" component={MyStoriesIndex} />
+        {/* <Route path="/stories/:storyId" component={StoryShow} /> */}
+        {/* <Route exact path="/:userName" component={UserShowPage} /> */}
         <Route exact path="/" component={loggedIn ? HomePage : LandingPage} />
       </Switch>
     </Router>

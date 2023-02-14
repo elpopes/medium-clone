@@ -1,0 +1,57 @@
+.story-list-item {
+  width: 680px;
+  height: 245px;
+  display: flex;
+  border-bottom: 1px solid lightgray;
+  color: lightgray;
+}
+
+.story-list {
+  padding-left: 40px;
+}
+
+.story-list > h1 {
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 40px;
+  padding-top: 40px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.story-link {
+  width: 508px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-decoration: none;
+  color: black;
+}
+
+.story-title {
+  font-family: "Helvetica Neue", sans-serif;
+  padding-bottom: 10px;
+  font-weight: 700;
+  padding-top: 50px;
+  font-size: 22px;
+}
+
+.story-body {
+  padding-top: 10px;
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-bottom: 5px;
+  color: lightslategrey;
+  line-height: 1.5;
+}
+
+.story-image-container {
+  width: 150px;
+  height: 150px;
+  background-color: lightgray;
+}
+
+.story-bottom-container {
+  height: 40px;
+}

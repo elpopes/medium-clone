@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { createStory } from "../../store/storiesReducer";
+import StoryNav from "./StoryNav";
+import "./StoryFormPage.css";
 
 const StoryFormPage = () => {
   const [title, setTitle] = useState("");
@@ -26,24 +28,31 @@ const StoryFormPage = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <input
-          type="body"
-          value={title}
-          onChange={handleTitleChange}
-          placeholder="Title"
-        />
-      </div>
-      <div>
-        <textarea
-          value={body}
-          onChange={handleTextChange}
-          placeholder="Tell your story..."
-        />
-      </div>
-      <button type="submit">Submit</button>
-    </form>
+    <>
+      <StoryNav />
+      <form className="story-form" onSubmit={handleSubmit}>
+        <div className="title-container">
+          <input
+            className="title-input"
+            type="text"
+            value={title}
+            onChange={handleTitleChange}
+            placeholder="Title"
+          />
+        </div>
+        <div className="body-container">
+          <textarea
+            className="body-input"
+            value={body}
+            onChange={handleTextChange}
+            placeholder="Tell your story..."
+          />
+        </div>
+        <button className="publish-button" type="submit">
+          Publish
+        </button>
+      </form>
+    </>
   );
 };
 
