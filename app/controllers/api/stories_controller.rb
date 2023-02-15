@@ -3,6 +3,7 @@
   
     def index
       @stories = Story.all
+    #   .sort { |a,b| b.created_at <=> a.created_at }
       render :index
     end
   

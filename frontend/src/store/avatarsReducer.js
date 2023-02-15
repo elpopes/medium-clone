@@ -1,3 +1,5 @@
+import csrfFetch from "./csrf";
+
 export const RECEIVE_AVATARS = "avatars/RECEIVE_AVATARS";
 export const receiveAvatars = (avatars) => ({
   type: RECEIVE_AVATARS,
@@ -27,7 +29,7 @@ export const getAvatar = (userId) => (state) => {
 };
 
 export const fetchAvatars = () => async (dispatch) => {
-  const res = await fetch("api/avatars");
+  const res = await csrfFetch("api/avatars");
   if (res.ok) {
     const avatars = await res.json();
     dispatch(receiveAvatars(avatars));
@@ -35,7 +37,7 @@ export const fetchAvatars = () => async (dispatch) => {
 };
 
 export const fetchAvatar = (avatarId) => async (dispatch) => {
-  const res = await fetch(`api/avatars/${avatarId}`);
+  const res = await csrfFetch(`api/avatars/${avatarId}`);
   if (res.ok) {
     const avatar = await res.json();
     dispatch(receiveAvatar(avatar));
@@ -43,7 +45,7 @@ export const fetchAvatar = (avatarId) => async (dispatch) => {
 };
 
 export const createAvatar = (avatar) => (dispatch) => {
-  return fetch("/api/avatars", {
+  return csrfFetch("/api/avatars", {
     method: "POST",
     body: JSON.stringify(avatar),
     headers: { "Content-Type": "application/json" },
@@ -53,7 +55,7 @@ export const createAvatar = (avatar) => (dispatch) => {
 };
 
 export const updateAvatar = (avatar) => (dispatch) => {
-  return fetch(`/api/avatars/${avatar.id}`, {
+  return csrfFetch(`/api/avatars/${avatar.id}`, {
     method: "PATCH",
     body: JSON.stringify(avatar),
     headers: { "Content-Type": "application/json" },
@@ -63,7 +65,7 @@ export const updateAvatar = (avatar) => (dispatch) => {
 };
 
 export const deleteAvatar = (avatarId) => (dispatch) => {
-  return fetch(`/api/avatars/${avatarId}`, {
+  return csrfFetch(`/api/avatars/${avatarId}`, {
     method: "DELETE",
   }).then(() => dispatch(removeAvatar(avatarId)));
 };

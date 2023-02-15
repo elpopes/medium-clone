@@ -9,7 +9,11 @@ const UserAvatar = () => {
     return <img src={avatar.photoUrl} alt="avatar" className="user-avatar" />;
   } else {
     return (
-      <img src="./default.jpg" alt="default avatar" className="user-avatar" />
+      <img
+        src="https://medium-earth-seeds.s3.amazonaws.com/users/default.png"
+        alt="default avatar"
+        className="user-avatar"
+      />
     );
   }
 };

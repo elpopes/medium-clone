@@ -55,7 +55,9 @@ const ProfileDropDown = () => {
             </li>
           </div>
           <div className="settings">
-            <li>Settings</li>
+            <Link className="dropdown-links" to="/me-account">
+              <li>Settings</li>
+            </Link>
             <li>Refine recommendations</li>
             <li>Manage publications</li>
           </div>

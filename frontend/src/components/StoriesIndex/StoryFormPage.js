@@ -3,10 +3,12 @@ import { useDispatch } from "react-redux";
 import { createStory } from "../../store/storiesReducer";
 import StoryNav from "./StoryNav";
 import "./StoryFormPage.css";
+import StoryPhotoButton from "./StoryPhotoButton";
 
 const StoryFormPage = () => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
+  const [photoUrl, setPhotoUrl] = useState("");
   const dispatch = useDispatch();
   const currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
 
@@ -18,10 +20,14 @@ const StoryFormPage = () => {
     setBody(event.target.value);
   };
 
+  const handlePhotoSelect = (url) => {
+    setPhotoUrl(url);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const author_id = currentUser.id;
-    const story = { title, body, author_id };
+    const story = { title, body, author_id, photo_url: photoUrl };
     dispatch(createStory(story));
 
     window.location = "/me-stories";
@@ -48,6 +54,7 @@ const StoryFormPage = () => {
             placeholder="Tell your story..."
           />
         </div>
+        <StoryPhotoButton onPhotoSelect={handlePhotoSelect} />
         <button className="publish-button" type="submit">
           Publish
         </button>

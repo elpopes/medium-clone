@@ -45,7 +45,6 @@ export const fetchUser = (userId) => async (dispatch) => {
 };
 
 export const loginUser = (user) => async (dispatch) => {
-
   let res = await csrfFetch("/api/session", {
     method: "POST",
     body: JSON.stringify(user),
@@ -75,7 +74,7 @@ export const createUser = (user) => async (dispatch) => {
 };
 
 export const updateUser = (user) => (dispatch) => {
-  return fetch(`/api/users/${user.id}`, {
+  return csrfFetch(`/api/users/${user.id}`, {
     method: "PATCH",
     body: JSON.stringify(user),
     headers: { "Content-Type": "application/json" },
