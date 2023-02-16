@@ -7,6 +7,7 @@ const StoryItem = ({ story }) => {
         <div>
           <p>{story.title}</p>
           <p>{story.body}</p>
+          <img src={story.photoUrl} alt="" />
         </div>
       </li>
     </>

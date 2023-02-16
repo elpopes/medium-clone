@@ -1,16 +1,29 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { createStory } from "../../store/storiesReducer";
+import React, { useState, useRef } from "react";
+import { useSelector } from "react-redux";
 import StoryNav from "./StoryNav";
+import csrfFetch from "../../store/csrf";
+
 import "./StoryFormPage.css";
-import StoryPhotoButton from "./StoryPhotoButton";
 
 const StoryFormPage = () => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
-  const [photoUrl, setPhotoUrl] = useState("");
-  const dispatch = useDispatch();
-  const currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
+  const [photoFile, setPhotoFile] = useState(null);
+  const [photoUrl, setPhotoUrl] = useState(null);
+  const fileRef = useRef(null);
+  const currentUser = useSelector((state) => state.session.user);
+
+  const handleFile = ({ currentTarget }) => {
+    const file = currentTarget.files[0];
+    setPhotoFile(file);
+    if (file) {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+      fileReader.onload = () => setPhotoUrl(fileReader.result);
+    } else {
+      setPhotoUrl(null);
+    }
+  };
 
   const handleTitleChange = (event) => {
     setTitle(event.target.value);
@@ -20,17 +33,28 @@ const StoryFormPage = () => {
     setBody(event.target.value);
   };
 
-  const handlePhotoSelect = (url) => {
-    setPhotoUrl(url);
-  };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const author_id = currentUser.id;
-    const story = { title, body, author_id, photo_url: photoUrl };
-    dispatch(createStory(story));
 
-    window.location = "/me-stories";
+    const formData = new FormData();
+    formData.append("title", title);
+    formData.append("body", body);
+    formData.append("author_id", currentUser.id);
+    formData.append("photo", photoFile);
+
+    try {
+      const res = await csrfFetch("/api/stories", {
+        method: "POST",
+        body: formData,
+      });
+      if (!res.ok) {
+        throw res;
+      }
+      const createdStory = await res.json();
+      console.log(createdStory);
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
@@ -54,7 +78,11 @@ const StoryFormPage = () => {
             placeholder="Tell your story..."
           />
         </div>
-        <StoryPhotoButton onPhotoSelect={handlePhotoSelect} />
+        <div className="photo-container">
+          <input type="file" ref={fileRef} onChange={handleFile} />
+          <h3>Image preview</h3>
+          {photoUrl && <img src={photoUrl} alt="Preview" />}
+        </div>
         <button className="publish-button" type="submit">
           Publish
         </button>

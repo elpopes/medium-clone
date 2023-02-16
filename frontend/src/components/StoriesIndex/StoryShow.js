@@ -36,6 +36,7 @@ function StoryShow() {
         <section className="story-show-section story-details">
           <h2>Details</h2>
           <p>{body}</p>
+          <img src={story.photoUrl} alt="" />
         </section>
         <section className="story-update-delete-section">
           {authorId === sessionUser?.id && (
