@@ -10,7 +10,7 @@ class Api::AvatarsController < ApplicationController
     end
   
     def create
-      user = User.find(params[:avatar][:user_id])
+      user = User.find(params[:avatar][:user_id])  
       avatar = user.build_avatar(avatar_params)
   
       if params[:avatar][:photo]

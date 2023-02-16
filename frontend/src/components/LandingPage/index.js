@@ -1,6 +1,7 @@
 import SignedOutNav from "../signedOutNav";
 import HeroBanner from "../HeroBanner";
 import Trending from "../Trending";
+import StoriesIndex from "../StoriesIndex";
 
 const LandingPage = () => {
   return (
@@ -8,6 +9,7 @@ const LandingPage = () => {
       <SignedOutNav />
       <HeroBanner />
       <Trending />
+      <StoriesIndex />
     </>
   );
 };

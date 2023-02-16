@@ -14,7 +14,12 @@ const Trending = () => {
   }, [dispatch]);
   return (
     <div className="trending-container">
-      <h1>Trending on Medium-Earth</h1>
+      <div className="top">
+        <div className="obey-me">
+          <i class="fa-solid fa-arrow-trend-up" />
+        </div>
+        <h1>Trending on Medium-Earth</h1>
+      </div>
       <ol>
         {stories.slice(0, 6).map((story, i) => {
           return (

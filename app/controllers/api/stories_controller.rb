@@ -16,13 +16,18 @@
     end
   
     def create
-      @story = Story.new(story_params)
-      if @story.save
-        render :show
-      else
-        render json: @story.errors, status: :unprocessable_entity
+        @story = Story.new(story_params)
+      
+        if params[:photo]
+          @story.photo.attach(params[:photo])
+        end
+      
+        if @story.save
+          render :show
+        else
+          render json: @story.errors, status: :unprocessable_entity
+        end
       end
-    end
   
     def update
       @story = Story.find(params[:id])
@@ -42,7 +47,7 @@
     private
   
     def story_params
-      params.require(:story).permit(:title, :body, :author_id)
-    end
+        params.permit(:title, :body, :author_id)
+      end
   end
   

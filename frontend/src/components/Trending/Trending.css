@@ -5,12 +5,23 @@
   padding: 60px 40px 30px 180px;
 }
 
-.trending-container h1 {
+.trending-container .top {
+  display: flex;
+  align-items: center;
+}
+
+.top h1 {
   font-size: 16px;
   font-weight: 500;
+  padding-left: 15px;
   margin-bottom: 20px;
+  margin-right: 10px;
   line-height: S 20px;
   width: 400px;
+}
+
+.obey-me {
+  margin-top: -20px;
 }
 
 .trendingItem {
