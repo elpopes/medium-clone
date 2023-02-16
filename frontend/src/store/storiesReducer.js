@@ -70,7 +70,7 @@ export const updateStory = (story) => (dispatch) => {
 };
 
 export const deleteStory = (storyId) => (dispatch) => {
-  return fetch(`/api/stories/${storyId}`, {
+  return csrfFetch(`/api/stories/${storyId}`, {
     method: "DELETE",
   }).then(() => dispatch(removeStory(storyId)));
 };

@@ -4,8 +4,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchStory, deleteStory } from "../../store/storiesReducer";
 import SignedInNav from "../signedInNav";
 import SignedOutNav from "../signedOutNav";
+import { useHistory } from "react-router-dom";
 
 function StoryShow() {
+  const history = useHistory();
   const dispatch = useDispatch();
   const { storyId } = useParams();
   const loggedIn = useSelector((state) => state.session.user);
@@ -41,7 +43,10 @@ function StoryShow() {
         <section className="story-update-delete-section">
           {authorId === sessionUser?.id && (
             <button
-              onClick={() => dispatch(deleteStory(storyId))}
+              onClick={() => {
+                dispatch(deleteStory(storyId));
+                history.push("/me-stories");
+              }}
               className="delete-icon"
             >
               <i className="fa-solid fa-rectangle-xmark" />

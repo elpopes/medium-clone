@@ -39,6 +39,7 @@
   
     def destroy
       @story = Story.find(params[:id])
+
       @story.destroy
       head :no_content
     end

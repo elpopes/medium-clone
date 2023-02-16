@@ -21,14 +21,18 @@ const Trending = () => {
         <h1>Trending on Medium-Earth</h1>
       </div>
       <ol>
-        {stories.slice(0, 6).map((story, i) => {
-          return (
-            <li key={i}>
-              <div className="numbers">{`0${i + 1}`}</div>
-              <TrendingItem story={story} />
-            </li>
-          );
-        })}
+        {stories
+          .reverse()
+          .slice(0, 6)
+          .map((story, i) => {
+            const index = i + 1;
+            return (
+              <li key={i}>
+                <div className="numbers">{`0${index}`}</div>
+                <TrendingItem story={story} />
+              </li>
+            );
+          })}
       </ol>
     </div>
   );
