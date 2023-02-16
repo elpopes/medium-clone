@@ -49,7 +49,7 @@ function StoryShow() {
               }}
               className="delete-icon"
             >
-              <i className="fa-solid fa-rectangle-xmark" />
+              <i class="fa-solid fa-trash-can"></i>
             </button>
           )}
         </section>

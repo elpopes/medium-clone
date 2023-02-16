@@ -16,7 +16,7 @@ const Trending = () => {
     <div className="trending-container">
       <div className="top">
         <div className="obey-me">
-          <i class="fa-solid fa-arrow-trend-up" />
+          <i className="fa-solid fa-arrow-trend-up" />
         </div>
         <h1>Trending on Medium-Earth</h1>
       </div>
