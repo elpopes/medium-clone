@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import { useSelector } from "react-redux";
 import StoryNav from "./StoryNav";
 import csrfFetch from "../../store/csrf";
+import { Redirect } from "react-router-dom";
 
 import "./StoryFormPage.css";
 
@@ -12,6 +13,7 @@ const StoryFormPage = () => {
   const [photoUrl, setPhotoUrl] = useState(null);
   const fileRef = useRef(null);
   const currentUser = useSelector((state) => state.session.user);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleFile = ({ currentTarget }) => {
     const file = currentTarget.files[0];
@@ -41,25 +43,33 @@ const StoryFormPage = () => {
     formData.append("body", body);
     formData.append("author_id", currentUser.id);
     formData.append("photo", photoFile);
-
+    setIsSubmitted(true);
     try {
+      //   debugger;
       const res = await csrfFetch("/api/stories", {
         method: "POST",
         body: formData,
       });
       if (!res.ok) {
+        debugger;
         throw res;
       }
-      const createdStory = await res.json();
-      console.log(createdStory);
+      //   debugger;
     } catch (err) {
+      //   debugger;
       console.error(err);
     }
+  };
+
+  const handlePlusClick = () => {
+    const photoContainer = document.querySelector(".photo-container");
+    photoContainer.classList.toggle("show");
   };
 
   return (
     <>
       <StoryNav />
+      {isSubmitted && <Redirect to="/me-stories" />}
       <form className="story-form" onSubmit={handleSubmit}>
         <div className="title-container">
           <input
@@ -77,6 +87,9 @@ const StoryFormPage = () => {
             onChange={handleTextChange}
             placeholder="Tell your story..."
           />
+        </div>
+        <div className="upload-icon" onClick={handlePlusClick}>
+          <i class="fa-solid fa-circle-plus"></i>
         </div>
         <div className="photo-container">
           <input type="file" ref={fileRef} onChange={handleFile} />

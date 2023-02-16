@@ -3,8 +3,8 @@ import { fetchStories, getStories } from "../../store/storiesReducer";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import MyStory from "./MyStory";
-import "./MyStories.css";
 import SignedInNav from "../signedInNav";
+import "./MyStories.css";
 
 const MyStoriesIndex = () => {
   const dispatch = useDispatch();

@@ -2,8 +2,7 @@
     before_action :require_logged_in, except: [:show, :index]
   
     def index
-      @stories = Story.all
-    #   .sort { |a,b| b.created_at <=> a.created_at }
+      @stories = Story.all.sort { |a,b| b.created_at <=> a.created_at }
       render :index
     end
   

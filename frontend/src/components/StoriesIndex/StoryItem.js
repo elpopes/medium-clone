@@ -1,22 +1,22 @@
 import React from "react";
-import SignedInNav from "../signedInNav";
-import SignedOutNav from "../signedOutNav";
-import { useSelector } from "react-redux";
+import "./StoryItem.css";
 
-const StoryItem = ({ story }) => {
-  const loggedIn = useSelector((state) => state.session.user);
+const TrendingItem = ({ story }) => {
   return (
     <>
-      {loggedIn ? SignedInNav : SignedOutNav}
       <li>
-        <div>
-          <p>{story.title}</p>
-          <p>{story.body}</p>
-          <img src={story.photoUrl} alt="" />
+        <div className="trending-item">
+          <div className="content">
+            <p className="title">{story.title}</p>
+            <p className="body">{story.body}</p>
+          </div>
+          <div className="photo-container">
+            <img src={story.photoUrl} alt="" />
+          </div>
         </div>
       </li>
     </>
   );
 };
 
-export default StoryItem;
+export default TrendingItem;
