@@ -1,4 +1,4 @@
-json.user do
+# json.user do
     json.extract! @user, :id, :username, :email, :created_at
     if @user.avatar
       json.avatar do
@@ -6,4 +6,4 @@ json.user do
         json.photoUrl rails_blob_path(@user.avatar.photo) if @user.avatar.photo.attached?
       end
     end
-  end
+#   end

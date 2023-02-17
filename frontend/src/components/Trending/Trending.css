@@ -28,7 +28,8 @@
   width: 400px;
 }
 
-.trending-container h2 {
+.trending-container a {
+  color: black;
   width: 400px;
   font-size: 16px;
   font-weight: 700;
@@ -56,6 +57,23 @@ ol li {
   margin-right: 10px;
   padding-top: 0;
   align-self: flex-start;
+}
+
+.byLine {
+  display: flex;
+  align-items: center;
+}
+
+.byLine > .avatar {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.byLine > .username {
+  font-size: 13px;
+  font-weight: 700;
 }
 
 @media (max-width: 991px) {
