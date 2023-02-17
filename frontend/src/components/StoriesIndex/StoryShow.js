@@ -5,6 +5,7 @@ import { fetchStory, deleteStory } from "../../store/storiesReducer";
 import SignedInNav from "../signedInNav";
 import SignedOutNav from "../signedOutNav";
 import { useHistory } from "react-router-dom";
+import "./StoryShow.css";
 
 function StoryShow() {
   const history = useHistory();
@@ -27,16 +28,14 @@ function StoryShow() {
   return (
     <>
       <div className="story-show-nav">
-        {loggedIn ? SignedInNav : SignedOutNav}
+        {loggedIn ? <SignedInNav /> : <SignedOutNav />}
       </div>
       <div className="story-show">
-        <div className="story-show-title">
+        <div className="story-title">
           <h1>{title}</h1>
-          <Link to="/">WHERE SHOULD THIS GO?</Link>
         </div>
 
-        <section className="story-show-section story-details">
-          <h2>Details</h2>
+        <section className="story-body">
           <p>{body}</p>
           <img src={story.photoUrl} alt="" />
         </section>
@@ -49,7 +48,7 @@ function StoryShow() {
               }}
               className="delete-icon"
             >
-              <i class="fa-solid fa-trash-can"></i>
+              <i className="fa-solid fa-trash-can"></i>
             </button>
           )}
         </section>

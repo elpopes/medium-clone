@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const MyStory = ({ story }) => {
-  //   debugger;
+  // debugger;
   const snip = (body) => {
     const words = body.split(" ");
     let truncatedBody = "";
@@ -23,7 +23,7 @@ const MyStory = ({ story }) => {
           <img src={story.photoUrl} alt="" />
         </div>
       </Link>
-      <div story-bottom-container></div>
+      {/* <div story-bottom-container></div> */}
     </li>
   );
 };

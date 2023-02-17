@@ -1,13 +1,16 @@
 import SignedInNav from "../signedInNav";
-import UserAvatar from "../Avatar/UserAvatar";
-import Trending from "../Trending";
+import "./HomePage.css";
+import StoriesIndex from "../StoriesIndex";
+import SideBar from "../SideBar";
 
 const HomePage = () => {
   return (
     <>
       <SignedInNav />
-      <UserAvatar />
-      <Trending />
+      <div className="home-page-container">
+        <StoriesIndex className="main-content" />
+        <SideBar />
+      </div>
     </>
   );
 };

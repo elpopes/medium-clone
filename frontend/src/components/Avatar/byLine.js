@@ -4,12 +4,15 @@ import { useEffect } from "react";
 
 const ByLine = ({ userId }) => {
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.users.userId);
-  debugger;
+  const user = useSelector((state) => {
+    if (state && state.users.undefined) {
+      return state.users.undefined.user;
+    }
+    return null;
+  });
   useEffect(() => {
     if (!user) {
       dispatch(fetchUser(userId));
-      debugger;
     }
   }, [dispatch, userId, user]);
   if (!user) {
