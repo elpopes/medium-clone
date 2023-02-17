@@ -3,7 +3,6 @@ import * as sessionActions from "../../store/session";
 import { useInput, useSubmit } from "../../hooks/hooks";
 import "./LoginForm.css";
 import { useDispatch } from "react-redux";
-// import DemoUser from "../DemoUser";
 
 function LoginForm() {
   const [password, onPasswordChange] = useInput("");
@@ -48,7 +47,7 @@ function LoginForm() {
       <br />
       <br />
       <button type="button" onClick={handleDemoUser}>
-        Be the wiz
+        Demo User
       </button>
     </form>
   );

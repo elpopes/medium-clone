@@ -1,9 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import { connect } from "react-redux";
 import "./SignedOutNav.css";
 import LoginButton from "../LogInButton";
-import LoginForm from "../LoginFormModel/LoginForm";
+
 import SignUpButton from "../SignUpButton";
 
 const SignedOutNav = () => {
@@ -11,7 +10,9 @@ const SignedOutNav = () => {
     <nav className="nav-wrapper">
       <div className="container">
         <div className="nav-logo">
-          <Link to="/">Medium-Earth</Link>
+          <Link to="/">
+            <img src={require("./logo.png")} alt="Logo" />
+          </Link>
         </div>
         <div className="spacer"></div>
         <div className="nav-links">
@@ -26,9 +27,6 @@ const SignedOutNav = () => {
           </Link>
           <LoginButton></LoginButton>
           <SignUpButton></SignUpButton>
-          {/* <button className="get-started-button" onClick={LoginForm}>
-            Get Started
-          </button> */}
         </div>
       </div>
     </nav>

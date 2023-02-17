@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { logout } from "../../store/session";
-import { useDispatch } from "react-redux";
+import UserAvatar from "../Avatar/UserAvatar";
+import "./ProfileDropDown.css";
+import SignOutButton from "../SignOutButton";
+import { Link } from "react-router-dom";
 
 const ProfileDropDown = () => {
   const [showDropDown, setShowDropDown] = useState(false);
-  const dispatch = useDispatch();
 
   const toggleDropDown = () => setShowDropDown(!showDropDown);
 
@@ -23,17 +24,60 @@ const ProfileDropDown = () => {
   }, [showDropDown]);
 
   return (
-    <div className="profile-dropdown">
-      <div className="profile-dropdown-toggle" onClick={toggleDropDown}>
-        <i className="fa fa-caret-down" />
+    <div className="profile-dropdown" onClick={toggleDropDown}>
+      <UserAvatar />
+      <div className="profile-dropdown-toggle">
+        <i className="fa fa-chevron-down" />
       </div>
       {showDropDown && (
-        <ul className="profile-dropdown-menu">
-          <li>Profile</li>
-          <li>Lists</li>
-          <li>Stories</li>
-          <li>Stats</li>
-          <button onClick={() => dispatch(logout())}>Sign Out</button>
+        <ul
+          className="profile-dropdown-menu"
+          style={{ display: showDropDown ? "block" : "none" }}
+        >
+          <div className="navigation">
+            <li>
+              <i class="fa-regular fa-user"></i>
+              <span>Profile</span>
+            </li>
+            <li>
+              <i class="fa-regular fa-bookmark"></i>
+              <span>Lists</span>
+            </li>
+            <li>
+              <Link className="dropdown-links" to="/me-stories">
+                <i class="fa-regular fa-file-lines"></i>
+                <span>Stories</span>
+              </Link>
+            </li>
+            <li>
+              <i class="fa-solid fa-chart-line"></i>
+              <span>Stats</span>
+            </li>
+          </div>
+          <div className="settings">
+            <Link className="dropdown-links" to="/me-account">
+              <li>Settings</li>
+            </Link>
+            <li>Refine recommendations</li>
+            <li>Manage publications</li>
+          </div>
+          <div className="members">
+            <li>Become a member</li>
+            <li>Apply to the Partner Program</li>
+            <li>Gift a membership</li>
+          </div>
+          <SignOutButton />
+          <div className="footie">
+            <li>Help</li>
+            <li>Status</li>
+            <li>Writers</li>
+            <li>Blog</li>
+            <li>Careers</li>
+            <li>Privacy</li>
+            <li>Terms</li>
+            <li>About</li>
+            <li>Text to Speech</li>
+          </div>
         </ul>
       )}
     </div>

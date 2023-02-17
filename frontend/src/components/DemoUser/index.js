@@ -8,7 +8,7 @@ function DemoUser({ onCredentialChange, onPasswordChange }) {
 
   return (
     <button type="button" onClick={handleDemoUser}>
-      Be the wizard
+      Demo User
     </button>
   );
 }

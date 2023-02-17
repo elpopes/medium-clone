@@ -17,9 +17,14 @@ const storeCSRFToken = (response) => {
   if (csrfToken) sessionStorage.setItem("X-CSRF-Token", csrfToken);
 };
 
-const storeCurrentUser = (user) => {
-  if (user) sessionStorage.setItem("currentUser", JSON.stringify(user));
-  else sessionStorage.removeItem("currentUser");
+const storeCurrentUser = (user, avatar) => {
+  if (user) {
+    sessionStorage.setItem("currentUser", JSON.stringify(user));
+    sessionStorage.setItem("currentUserAvatar", JSON.stringify(avatar));
+  } else {
+    sessionStorage.removeItem("currentUser");
+    sessionStorage.removeItem("currentUserAvatar");
+  }
 };
 
 export const login =
@@ -30,7 +35,7 @@ export const login =
       body: JSON.stringify({ credential, password }),
     });
     const data = await response.json();
-    storeCurrentUser(data.user);
+    storeCurrentUser(data.user, data.avatar);
     dispatch(setCurrentUser(data.user));
     return response;
   };
@@ -66,6 +71,13 @@ export const logout = () => async (dispatch) => {
 
 const initialState = {
   user: JSON.parse(sessionStorage.getItem("currentUser")),
+  avatar: (() => {
+    try {
+      return JSON.parse(sessionStorage.getItem("currentUserAvatar"));
+    } catch (e) {
+      return null;
+    }
+  })(),
 };
 
 const sessionReducer = (state = initialState, action) => {

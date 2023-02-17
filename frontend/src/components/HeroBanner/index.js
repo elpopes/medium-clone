@@ -6,7 +6,7 @@ const HeroBanner = () => {
     <div className="hero-banner">
       <div className="text">
         <h1>Fly, you fools!</h1>
-        <h3>"There is nothing like looking if you want to find something."</h3>
+        <h2>There is nothing like looking if you want to find something.</h2>
         <BannerButton></BannerButton>
       </div>
       <div className="animation"></div>

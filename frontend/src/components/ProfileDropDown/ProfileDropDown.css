@@ -1,10 +1,28 @@
 .profile-dropdown {
   position: relative;
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  padding-left: 50px;
 }
 
 .profile-dropdown-toggle {
   cursor: pointer;
+}
+
+.profile-dropdown .user-avatar {
+  width: 32px;
+  height: 32px;
+  margin-right: 10px;
+}
+
+.fa-chevron-down {
+  color: rgb(133, 133, 133);
+}
+
+.profile-dropdown-menu .dropdown-links {
+  background-color: #ffffff;
+  padding: 0;
+  margin: 0;
 }
 
 .profile-dropdown-menu {
@@ -12,12 +30,21 @@
   top: 100%;
   right: 0;
   display: none;
+  width: 280px;
+  height: 600px;
   margin: 0;
-  padding: 0;
+  margin-top: 8px;
   list-style: none;
   background-color: #fff;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
   z-index: 1;
+  color: rgb(112, 112, 112);
+}
+
+.profile-dropdown-menu > div {
+  border-bottom: 1px solid #ddd;
+  padding: 20px;
 }
 
 .profile-dropdown:hover .profile-dropdown-menu {
@@ -32,5 +59,58 @@
 }
 
 .profile-dropdown-menu a:hover {
-  background-color: #f2f2f2;
+  color: rgb(82, 82, 82);
+}
+
+.navigation li {
+  padding: 10px;
+}
+
+.navigation li span {
+  padding-left: 25px;
+}
+
+.settings li {
+  font-size: 14px;
+  padding: 8px;
+}
+
+.members li {
+  font-size: 14px;
+  padding: 8px;
+}
+
+.sign-out {
+  text-align: left;
+}
+
+.sign-out-email {
+  font-size: 12px;
+  padding-left: 10px;
+}
+
+.sign-out button {
+  background-color: transparent;
+  border: none;
+  color: inherit;
+  font: inherit;
+  font-size: 14px;
+  margin: 0;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.footie {
+  background: rgb(236, 236, 236);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  height: 24px;
+}
+
+.footie li {
+  padding: 7px;
+  padding-top: 0px;
+  text-align: center;
+  font-size: 10px;
 }
