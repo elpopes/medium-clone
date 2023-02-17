@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::API
     include ActionController::RequestForgeryProtection
     # skip_before_action :verify_authenticity_token
-    helper_method :current_user, :logged_in?
+    # helper_method :current_user, :logged_in?
     protect_from_forgery with: :exception
     before_action :snake_case_params
     before_action :attach_authenticity_token

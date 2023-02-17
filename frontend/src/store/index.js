@@ -24,6 +24,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 const configureStore = (preloadedState) => {
+  console.log(preloadedState);
   return createStore(rootReducer, preloadedState, enhancer);
 };
 

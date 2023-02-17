@@ -13,9 +13,12 @@ const StoriesIndex = () => {
   return (
     <>
       <ul>
-        {stories.map((story, i) => {
-          return <StoryItem key={i} story={story} />;
-        })}
+        {stories
+          .slice()
+          .reverse()
+          .map((story, i) => {
+            return <StoryItem key={i} story={story} />;
+          })}
       </ul>
     </>
   );

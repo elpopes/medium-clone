@@ -1,7 +1,7 @@
 import React from "react";
 import "./StoryItem.css";
 
-const TrendingItem = ({ story }) => {
+const StoryItem = ({ story }) => {
   return (
     <>
       <li>
@@ -11,7 +11,7 @@ const TrendingItem = ({ story }) => {
             <p className="body">{story.body}</p>
           </div>
           <div className="photo-container">
-            <img src={story.photoUrl} alt="" />
+            <img src={story.photoUrl} alt="StoryPhoto" />
           </div>
         </div>
       </li>
@@ -19,4 +19,4 @@ const TrendingItem = ({ story }) => {
   );
 };
 
-export default TrendingItem;
+export default StoryItem;
