@@ -1,0 +1,24 @@
+.home-page-container {
+  padding-top: 60px;
+}
+
+.sidebar-container {
+  width: 300px;
+  height: 100%;
+  padding-left: 40px;
+  padding-top: 40px;
+}
+
+.main-content {
+  margin-right: 300px;
+}
+
+@media only screen and (max-width: 800px) {
+  .sidebar-container {
+    display: none;
+  }
+
+  .main-content {
+    margin-right: 0;
+  }
+}

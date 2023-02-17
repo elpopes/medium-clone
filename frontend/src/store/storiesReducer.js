@@ -19,7 +19,6 @@ export const removeStory = (storyId) => ({
 });
 
 export const getStories = (state) => {
-  //   debugger;
   if (!state.stories) return [];
   return Object.values(state.stories);
 };

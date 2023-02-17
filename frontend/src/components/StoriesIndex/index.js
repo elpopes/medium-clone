@@ -2,7 +2,7 @@ import React from "react";
 import { fetchStories, getStories } from "../../store/storiesReducer";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import StoryItem from "./StoryItem";
+import MyStory from "./MyStory";
 
 const StoriesIndex = () => {
   const dispatch = useDispatch();
@@ -13,9 +13,12 @@ const StoriesIndex = () => {
   return (
     <>
       <ul>
-        {stories.map((story, i) => {
-          return <StoryItem key={i} story={story} />;
-        })}
+        {stories
+          .slice()
+          .reverse()
+          .map((story, i) => {
+            return <MyStory key={i} story={story} />;
+          })}
       </ul>
     </>
   );

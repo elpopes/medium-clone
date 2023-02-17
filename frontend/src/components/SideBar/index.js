@@ -1,17 +1,17 @@
 import { Link } from "react-router-dom";
 
-const sideBar = () => {
+const SideBar = () => {
   return (
     <div className="sidebar-container">
-      <h2>Discover more of what matters</h2>
+      <h2>Discover more.</h2>
       <div className="social-link-container">
-        <Link className="link-with-icon" to={"https://github.com/elpopes"}>
+        <a href="https://github.com/elpopes">
           <i class="fa-brands fa-github"></i>
           Github
-        </Link>
+        </a>
       </div>
     </div>
   );
 };
 
-export default sideBar;
+export default SideBar;

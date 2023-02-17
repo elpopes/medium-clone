@@ -1,0 +1,50 @@
+.story-show {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.story-show-title {
+  margin-bottom: 20px;
+}
+
+.story-show-title h1 {
+  font-size: 32px;
+  margin: 0;
+}
+
+.story-show-title a {
+  font-size: 16px;
+}
+
+.story-body p {
+  margin-bottom: 40px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  color: black;
+}
+
+.story-details img {
+  display: block;
+  max-width: 100%;
+  margin: 20px 0;
+}
+
+.story-update-delete-section {
+  margin-top: 40px;
+}
+
+.story-update-delete-section {
+  margin-top: 40px;
+  text-align: right;
+}
+
+.delete-icon {
+  background-color: #fff;
+  border: none;
+  padding: 0;
+  font-size: 24px;
+  color: #d50000;
+  cursor: pointer;
+  float: right;
+}
