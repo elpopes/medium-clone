@@ -22,7 +22,7 @@ class Api::SessionsController < ApplicationController
 
           render 'api/users/show', locals: { avatar: @avatar }
         else
-          render json: { errors: ['The provided credentials were invalid.'] }, 
+          render json: { errors: ['YOU SHALL NOT PASS!'] }, 
             status: :unauthorized
         end
 
