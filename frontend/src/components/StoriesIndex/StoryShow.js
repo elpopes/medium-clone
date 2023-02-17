@@ -6,6 +6,7 @@ import SignedInNav from "../signedInNav";
 import SignedOutNav from "../signedOutNav";
 import { useHistory } from "react-router-dom";
 import "./StoryShow.css";
+import ByLine from "../Avatar/byLine";
 
 function StoryShow() {
   const history = useHistory();
@@ -31,6 +32,7 @@ function StoryShow() {
         {loggedIn ? <SignedInNav /> : <SignedOutNav />}
       </div>
       <div className="story-show">
+        <ByLine userId={authorId} />
         <div className="story-title">
           <h1>{title}</h1>
         </div>

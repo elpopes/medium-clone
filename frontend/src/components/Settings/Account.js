@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Modal } from "../../context/Modal";
 import EditUser from "./EditUser";
+import "./Account.css";
 // import EditPhoto from "./EditPhoto";
 import SignedInNav from "../signedInNav";
 import { Redirect } from "react-router-dom";
