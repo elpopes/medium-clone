@@ -14,7 +14,7 @@ const ByLine = ({ userId }) => {
     if (!user) {
       dispatch(fetchUser(userId));
     }
-  }, [dispatch, userId, user]);
+  }, [dispatch, userId]);
   if (!user) {
     return <div>Loading...</div>;
   }

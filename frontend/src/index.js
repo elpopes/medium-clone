@@ -17,6 +17,7 @@ if (sessionStorage.getItem("currentUser") !== "undefined") {
 }
 
 let initialState = {};
+
 if (currentUser) {
   initialState = {
     user: currentUser,
