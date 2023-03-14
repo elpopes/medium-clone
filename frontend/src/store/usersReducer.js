@@ -31,6 +31,7 @@ export const getUser = (userId) => (state) => {
 export const fetchUsers = () => async (dispatch) => {
   const res = await fetch("api/users");
   if (res.ok) {
+    debugger;
     const users = await res.json();
     dispatch(receiveUsers(users));
   }

@@ -7,8 +7,8 @@ const ByLine = ({ userId }) => {
   const users = useSelector((state) => state.users);
 
   useEffect(() => {
-    if (!users) {
-      dispatch(fetchUsers([userId]));
+    if (!users || !users[userId]) {
+      dispatch(fetchUsers());
     }
   }, [dispatch, userId, users]);
 
@@ -20,7 +20,7 @@ const ByLine = ({ userId }) => {
 
   return (
     <div className="byLine">
-      <img className="avatar" src={author.avatar.photoUrl} alt="img" />
+      <img className="avatar" src={author.avatar?.photoUrl || ""} alt="img" />
       <div className="username">{author.username}</div>
     </div>
   );
