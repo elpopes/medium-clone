@@ -5,14 +5,15 @@ import { useEffect } from "react";
 const ByLine = ({ userId }) => {
   const dispatch = useDispatch();
   const users = useSelector((state) => state.users);
+  const isUserLoaded = users && users[userId];
 
   useEffect(() => {
-    if (!users || !users[userId]) {
+    if (!isUserLoaded) {
       dispatch(fetchUsers());
     }
-  }, [dispatch, userId, users]);
+  }, [dispatch, userId, isUserLoaded]);
 
-  if (!users || !users[userId]) {
+  if (!isUserLoaded) {
     return <div>Loading...</div>;
   }
 
