@@ -29,11 +29,16 @@ export const getUser = (userId) => (state) => {
 };
 
 export const fetchUsers = () => async (dispatch) => {
-  const res = await fetch("api/users");
-  if (res.ok) {
-    debugger;
-    const users = await res.json();
-    dispatch(receiveUsers(users));
+  try {
+    const res = await fetch("api/users");
+    if (res.ok) {
+      const users = await res.json();
+      //   console.log("Received users:", users);
+      //   debugger;
+      dispatch(receiveUsers(users));
+    }
+  } catch (error) {
+    console.log("Error fetching users:", error);
   }
 };
 
