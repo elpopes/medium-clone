@@ -5,19 +5,23 @@ import { useEffect } from "react";
 const ByLine = ({ userId }) => {
   const dispatch = useDispatch();
   const users = useSelector((state) => state.users);
-  const isUserLoaded = users && users[userId];
+  const isUserLoaded = !!users;
 
   useEffect(() => {
-    if (!isUserLoaded) {
+    if (!users) {
       dispatch(fetchUsers());
     }
-  }, [dispatch, userId, isUserLoaded]);
+  }, [dispatch, userId, users]);
 
   if (!isUserLoaded) {
     return <div>Loading...</div>;
   }
 
-  const author = users[userId];
+  const author = users.find((user) => user.id === userId);
+
+  if (!author) {
+    return <div>Author not found</div>;
+  }
 
   return (
     <div className="byLine">

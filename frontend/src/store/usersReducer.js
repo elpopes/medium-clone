@@ -33,8 +33,8 @@ export const fetchUsers = () => async (dispatch) => {
     const res = await fetch("api/users");
     if (res.ok) {
       const users = await res.json();
-      //   console.log("Received users:", users);
-      //   debugger;
+      console.log("Received users:", users);
+      debugger;
       dispatch(receiveUsers(users));
     }
   } catch (error) {
