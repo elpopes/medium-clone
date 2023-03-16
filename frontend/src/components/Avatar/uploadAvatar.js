@@ -45,7 +45,7 @@ const UploadAvatar = ({ setNewAvatar }) => {
         formData.append("avatar[id]", currentAvatar.id);
         window.location.reload();
       }
-      formData.append("avatar[photo]", p);
+      formData.append("avatar[photo]", photoFile);
       window.location.reload();
     } else if (imageFiles.length !== 0) {
       Array.from(imageFiles).forEach((image) => {
