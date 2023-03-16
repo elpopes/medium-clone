@@ -30,12 +30,9 @@ export const getStory = (storyId) => (state) => {
 
 export const fetchStories = () => async (dispatch) => {
   const res = await csrfFetch("api/stories");
-  //   debugger;
-  //   debugger;
   if (res.ok) {
-    // debugger;
     const stories = await res.json();
-    // debugger;
+    debugger;
     dispatch(receiveStories(stories));
   }
 };

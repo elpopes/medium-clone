@@ -5,6 +5,9 @@ const MyStory = ({ story }) => {
   // debugger;
   const snip = (body) => {
     const words = body.split(" ");
+    if (words.length <= 25) {
+      return body;
+    }
     let truncatedBody = "";
     for (let i = 0; i < 25; i++) {
       truncatedBody += words[i] + " ";

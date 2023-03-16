@@ -10,7 +10,6 @@ const ByLine = ({ userId }) => {
   useEffect(() => {
     if (!author) {
       dispatch(fetchUser(userId));
-      debugger;
     }
   }, [dispatch, userId, author]);
 

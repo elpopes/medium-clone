@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchStory, deleteStory } from "../../store/storiesReducer";
+import { fetchStories, deleteStory } from "../../store/storiesReducer";
 import SignedInNav from "../signedInNav";
 import SignedOutNav from "../signedOutNav";
 import { useHistory } from "react-router-dom";
@@ -17,8 +17,9 @@ function StoryShow() {
   const story = useSelector((state) => state.stories[storyId]);
 
   useEffect(() => {
-    dispatch(fetchStory(storyId));
-  }, [storyId, dispatch]);
+    dispatch(fetchStories());
+  }, [dispatch]);
+  debugger;
 
   if (!story) {
     return null;
@@ -32,7 +33,7 @@ function StoryShow() {
         {loggedIn ? <SignedInNav /> : <SignedOutNav />}
       </div>
       <div className="story-show">
-        <ByLine userId={authorId} />
+        {/* <ByLine userId={authorId} /> */}
         <div className="story-title">
           <h1>{title}</h1>
         </div>

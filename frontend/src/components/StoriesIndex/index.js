@@ -7,6 +7,7 @@ import MyStory from "./MyStory";
 const StoriesIndex = () => {
   const dispatch = useDispatch();
   const stories = useSelector(getStories);
+
   useEffect(() => {
     dispatch(fetchStories());
   }, [dispatch]);
