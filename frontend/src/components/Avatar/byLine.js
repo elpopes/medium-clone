@@ -1,26 +1,20 @@
 import { useDispatch, useSelector } from "react-redux";
-import { fetchUsers } from "../../store/usersReducer";
+import { fetchUser } from "../../store/usersReducer";
 import { useEffect } from "react";
 
 const ByLine = ({ userId }) => {
   const dispatch = useDispatch();
   const users = useSelector((state) => state.users);
-  const isUserLoaded = !!users;
+  const author = users[userId];
 
   useEffect(() => {
-    if (!users) {
-      dispatch(fetchUsers());
+    if (!author) {
+      dispatch(fetchUser(userId));
     }
-  }, [dispatch, userId, users]);
-
-  if (!isUserLoaded) {
-    return <div>Loading...</div>;
-  }
-
-  const author = users.find((user) => user.id === userId);
+  }, [dispatch, userId, author]);
 
   if (!author) {
-    return <div>Author not found</div>;
+    return <div>Loading...</div>;
   }
 
   return (
