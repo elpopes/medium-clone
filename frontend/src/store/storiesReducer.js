@@ -32,7 +32,6 @@ export const fetchStories = () => async (dispatch) => {
   const res = await csrfFetch("api/stories");
   if (res.ok) {
     const stories = await res.json();
-    debugger;
     dispatch(receiveStories(stories));
   }
 };

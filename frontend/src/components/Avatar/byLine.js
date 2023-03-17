@@ -1,26 +1,25 @@
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUser } from "../../store/usersReducer";
 import { useEffect } from "react";
+import { getUser } from "../../store/usersReducer";
 
 const ByLine = ({ userId }) => {
   const dispatch = useDispatch();
-  const users = useSelector((state) => state.users);
-  const author = users[userId];
+
+  const user = useSelector(getUser(userId));
 
   useEffect(() => {
-    if (!author) {
+    if (!user) {
       dispatch(fetchUser(userId));
     }
-  }, [dispatch, userId, author]);
-
-  if (!author) {
+  }, [dispatch, userId]);
+  if (!user) {
     return <div>Loading...</div>;
   }
-
   return (
     <div className="byLine">
-      <img className="avatar" src={author.avatar?.photoUrl || ""} alt="img" />
-      <div className="username">{author.username}</div>
+      <img className="avatar" src={user.avatar.photoUrl} alt="img" />
+      <div className="username">{user.username}</div>
     </div>
   );
 };

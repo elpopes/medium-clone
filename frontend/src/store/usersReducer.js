@@ -24,8 +24,8 @@ export const getUsers = (state) => {
 };
 
 export const getUser = (userId) => (state) => {
-  if (!state.users) return null;
-  return state.users[userId];
+  if (!state || !state.users[userId]) return null;
+  return state.users[userId].user;
 };
 
 export const fetchUsers = () => async (dispatch) => {
@@ -34,7 +34,7 @@ export const fetchUsers = () => async (dispatch) => {
     if (res.ok) {
       const users = await res.json();
       console.log("Received users:", users);
-      debugger;
+      //   debugger;
       dispatch(receiveUsers(users));
     }
   } catch (error) {
@@ -98,7 +98,8 @@ export const deleteUser = (userId) => (dispatch) => {
 const usersReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_USER:
-      return { ...state, [action.user.id]: action.user };
+      debugger;
+      return { ...state, [action.user.user.id]: action.user };
     case RECEIVE_USERS:
       return { ...state, ...action.users };
     case REMOVE_USER:

@@ -34,7 +34,6 @@ function Account() {
             {showModal1 && (
               <Modal
                 onClick={(e) => {
-                  debugger;
                   if (e.target.id === "modal-background") {
                     setShowModal1(false);
                   }
