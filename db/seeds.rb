@@ -164,22 +164,22 @@
       
 #   end
 
-  Story.transaction do
-    puts "Creating stories..."
+#   Story.transaction do
+#     puts "Creating stories..."
     
-    60.times do |i|
-        author_id = (i + 9) % 10 + 1
-        Story.create!(
-          title: "Story #{i + 11} by User ##{author_id}",
-          body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor, magna sit amet hendrerit congue, tellus mi tristique ante, a faucibus enim erat sit amet dui. Aliquam erat volutpat. Nam euismod ipsum vel ipsum rutrum, in tincidunt dui consectetur. Curabitur mollis, nisi vel aliquam tempor, nisl nisi pellentesque velit, vel tempor velit velit vel velit.",
-          author_id: author_id,
-          created_at: DateTime.now,
-          updated_at: DateTime.now
-        )
-      end
-  end
+#     60.times do |i|
+#         author_id = (i + 9) % 10 + 1
+#         Story.create!(
+#           title: "Story #{i + 11} by User ##{author_id}",
+#           body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor, magna sit amet hendrerit congue, tellus mi tristique ante, a faucibus enim erat sit amet dui. Aliquam erat volutpat. Nam euismod ipsum vel ipsum rutrum, in tincidunt dui consectetur. Curabitur mollis, nisi vel aliquam tempor, nisl nisi pellentesque velit, vel tempor velit velit vel velit.",
+#           author_id: author_id,
+#           created_at: DateTime.now,
+#           updated_at: DateTime.now
+#         )
+#       end
+#   end
   
-  puts "DONE!"
+#   puts "DONE!"
 
 
 
