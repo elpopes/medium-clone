@@ -64,13 +64,3 @@ function Account() {
 }
 
 export default Account;
-
-{
-  /* <Link to="#" className="account-info-link">
-<div className="account-info-title">Username</div>
-<div className="account-info-data">{sessionUser.username}</div>
-</Link>
-<Modal>
-<EditUsername />
-</Modal> */
-}

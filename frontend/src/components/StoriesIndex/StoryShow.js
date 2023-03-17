@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchStory, deleteStory } from "../../store/storiesReducer";
 import SignedInNav from "../signedInNav";
@@ -7,7 +7,6 @@ import SignedOutNav from "../signedOutNav";
 import { useHistory } from "react-router-dom";
 import "./StoryShow.css";
 import ByLine from "../Avatar/byLine";
-import { useState } from "react";
 
 function StoryShow() {
   const history = useHistory();
@@ -18,12 +17,10 @@ function StoryShow() {
   const story = useSelector((state) =>
     state && state.stories ? state.stories[storyId] : null
   );
-  const [loading, setLoading] = useState(true); // Add a loading state
 
   useEffect(() => {
     dispatch(fetchStory(storyId));
-    setLoading(false);
-  }, [dispatch]);
+  }, [dispatch, storyId]);
 
   if (!story) {
     return null;

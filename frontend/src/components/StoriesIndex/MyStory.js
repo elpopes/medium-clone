@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const MyStory = ({ story }) => {
-  // debugger;
   const snip = (body) => {
     const words = body.split(" ");
     if (words.length <= 25) {
