@@ -20,8 +20,8 @@ async function csrfFetch(url, options = {}) {
     }
     options.headers["X-CSRF-Token"] = sessionStorage.getItem("X-CSRF-Token");
   }
-
-  const res = await fetch(url, options);
+  const currentUrl = window.location.origin + "/" + url;
+  const res = await fetch(currentUrl, options);
   if (res.status >= 400) throw res;
   return res;
 }

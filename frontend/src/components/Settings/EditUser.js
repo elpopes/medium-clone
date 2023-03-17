@@ -1,20 +1,18 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useState } from "react";
 import { useEffect } from "react";
-import { fetchUser, getUser, updateUser } from "../../store/usersReducer";
+import { fetchUser, updateUser } from "../../store/usersReducer";
 
 const EditUser = () => {
   const currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
   const userId = currentUser.id;
   const dispatch = useDispatch();
-  //   const user = useSelector(getUser(userId));
 
   const [email, setEmail] = useState(currentUser.email);
 
   useEffect(() => {
     if (email) {
       dispatch(fetchUser(userId));
-      //   debugger;
     }
   }, [dispatch, email, userId]);
 

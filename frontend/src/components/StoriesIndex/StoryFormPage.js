@@ -45,18 +45,14 @@ const StoryFormPage = () => {
     formData.append("photo", photoFile);
     setIsSubmitted(true);
     try {
-      //   debugger;
       const res = await csrfFetch("/api/stories", {
         method: "POST",
         body: formData,
       });
       if (!res.ok) {
-        debugger;
         throw res;
       }
-      //   debugger;
     } catch (err) {
-      //   debugger;
       console.error(err);
     }
   };

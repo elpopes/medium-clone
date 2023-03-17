@@ -10,7 +10,6 @@ const UploadAvatar = ({ setNewAvatar }) => {
   const fileRef = useRef(null);
   const [currentAvatar, setCurrentAvatar] = useState(null);
   const currentUser = useSelector((state) => state.session.user);
-  //   debugger;
 
   useEffect(() => {
     async function fetchData() {
