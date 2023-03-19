@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_09_222949) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_19_020343) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -49,6 +49,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_09_222949) do
     t.index ["user_id"], name: "index_avatars_on_user_id"
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.string "title"
+    t.text "body"
+    t.bigint "story_id", null: false
+    t.bigint "comment_author_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["comment_author_id"], name: "index_comments_on_comment_author_id"
+    t.index ["story_id"], name: "index_comments_on_story_id"
+  end
+
   create_table "stories", force: :cascade do |t|
     t.string "title", null: false
     t.text "body", null: false
@@ -77,5 +88,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_09_222949) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "avatars", "users"
+  add_foreign_key "comments", "stories"
+  add_foreign_key "comments", "users", column: "comment_author_id"
   add_foreign_key "stories", "users", column: "author_id"
 end
