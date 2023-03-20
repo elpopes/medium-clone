@@ -1,50 +1,48 @@
 class Api::CommentsController < ApplicationController
+    before_action :require_logged_in, only: [:create, :update, :destroy]
     before_action :set_story
     before_action :set_comment, only: [:show, :update, :destroy]
   
     def index
-      @comments = @story.comments
-      render json: @comments
-    end
+        @comments = Comment.where(story_id: params[:story_id])
+        render :index
+      end
   
     def show
-      render json: @comment
+        @comment = Comment.find(params[:id])
+        render :show
     end
   
     def create
-      @comment = @story.comments.new(comment_params)
-  
-      if @comment.save
-        render json: @comment, status: :created
-      else
-        render json: @comment.errors, status: :unprocessable_entity
+        @comment = current_user.comments.new(comment_params)
+        if @comment.save
+          render :show
+        else
+          render json: @comment.errors.full_messages, status: 422
+        end
       end
-    end
   
+
     def update
-      if @comment.update(comment_params)
-        render json: @comment
-      else
-        render json: @comment.errors, status: :unprocessable_entity
-      end
+        @comment = current_user.comments.find(params[:id])
+        if @comment.update(comment_params)
+            render :show
+        else
+            render json: @comment.errors.full_messages, status: 422
+        end
     end
-  
+
     def destroy
-      @comment.destroy
+        @comment = current_user.comments.find(params[:id])
+        @comment.destroy
+        render :show
     end
   
     private
   
-    def set_story
-      @story = Story.find(params[:story_id])
-    end
-  
-    def set_comment
-      @comment = @story.comments.find(params[:id])
-    end
-  
     def comment_params
-      params.require(:comment).permit(:body, :comment_author_id)
+        params.require(:comment).permit(:title, :body, :comment_author_id)
     end
+    
   end
   

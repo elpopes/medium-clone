@@ -36,6 +36,7 @@ class User < ApplicationRecord
 
     has_one :avatar
     has_many :stories
+    has_many :comments
 
 
     def self.find_by_credentials(credential, password)
