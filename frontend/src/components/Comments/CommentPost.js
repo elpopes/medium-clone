@@ -1,8 +1,7 @@
-// Allows user to create or update a comment.
+
 
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { createComment, updateComment } from '../../actions/comments';
+
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 const CommentPost = ({ parentId, comment, createComment, updateComment }) => {

@@ -1,8 +1,7 @@
 // show an individual comment
 
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { deleteComment } from '../../actions/comments';
+import React from 'react';
+
 import { Button } from 'reactstrap';
 
 const CommentShow = ({ comment, deleteComment }) => {

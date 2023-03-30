@@ -1,8 +1,6 @@
-// component to edit a comment
 
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { updateComment } from '../../actions/comments';
+
+import React from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 const CommentEdit = ({ comment, updateComment }) => {
