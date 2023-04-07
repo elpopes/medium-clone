@@ -2,6 +2,8 @@ ApplicationRecord.transaction do
     puts "Destroying tables..."
   
     # Unnecessary if using `rails db:seed:replant`
+    User.delete_all
+    Story.delete_all
 
     ApplicationRecord.connection.reset_pk_sequence!("stories")
     ApplicationRecord.connection.reset_pk_sequence!("users")
@@ -113,85 +115,7 @@ ApplicationRecord.transaction do
         created_at: DateTime.now,
         updated_at: DateTime.now
       )
-
-    Story.create!(
-        title: "An Unexpected Journey",
-        body: "Bilbo Baggins, a hobbit enjoying his quiet life, is swept into an epic quest by Gandalf the Grey and thirteen dwarves who seek to reclaim their mountain home from Smaug, the dragon.",
-        author_id: 10,
-        created_at: DateTime.now,
-        updated_at: DateTime.now
-      )
       
-      # File: db/seeds/story_2.rb
-
-      Story.transaction do
-        puts "Creating stories..."
-        
-        60.times do |i|
-            author_id = (i + 9) % 10 + 1
-            Story.create!(
-              title: "Story #{i + 11} by User ##{author_id}",
-              body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor, magna sit amet hendrerit congue, tellus mi tristique ante, a faucibus enim erat sit amet dui. Aliquam erat volutpat. Nam euismod ipsum vel ipsum rutrum, in tincidunt dui consectetur. Curabitur mollis, nisi vel aliquam tempor, nisl nisi pellentesque velit, vel tempor velit velit vel velit.",
-              author_id: author_id,
-              created_at: DateTime.now,
-              updated_at: DateTime.now
-            )
-          end
-      end
-      
-      Story.create!(
-        title: "The Desolation of Smaug",
-        body: "The dwarves, along with Bilbo Baggins and Gandalf the Grey, continue their quest to reclaim Erebor, their homeland, from Smaug. Bilbo infiltrates the Lonely Mountain in disguise and discovers a mysterious item known as the One Ring.",
-        author_id: 10,
-        created_at: DateTime.now,
-        updated_at: DateTime.now
-      )
-      
-      # File: db/seeds/story_3.rb
-      
-      Story.create!(
-        title: "The Battle of the Five Armies",
-        body: "As the dwarves of Erebor reclaim their homeland, they spark a battle when the dragon Smaug awakens and begins attacking Lake-town. Five armies then converge for a battle that will determine the future of all in Middle-earth.",
-        author_id: 10,
-        created_at: DateTime.now,
-        updated_at: DateTime.now
-      )
-      
-      # File: db/seeds/story_4.rb
-      
-      Story.create!(
-        title: "Riddles in the Dark",
-        body: "Bilbo Baggins meets Gollum in the depths of the Misty Mountains and must use his wit to solve riddles and escape Gollum's lair while in possession of the One Ring.",
-        author_id: 10,
-        created_at: DateTime.now,
-        updated_at: DateTime.now
-      )
-      
-      # File: db/seeds/story_5.rb
-      
-      Story.create!(
-        title: "A Long-expected Party",
-        body: "Bilbo Baggins, a hobbit in the Shire, throws a party to mark his eleventy-first birthday and the arrival of his old friend Gandalf the Grey, who brings news of a great adventure.",
-        author_id: 10,
-        created_at: DateTime.now,
-        updated_at: DateTime.now
-      )
-      
-  end
-
-  Story.transaction do
-    puts "Creating stories..."
-    
-    60.times do |i|
-        author_id = (i + 9) % 10 + 1
-        Story.create!(
-          title: "Story #{i + 11} by User ##{author_id}",
-          body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor, magna sit amet hendrerit congue, tellus mi tristique ante, a faucibus enim erat sit amet dui. Aliquam erat volutpat. Nam euismod ipsum vel ipsum rutrum, in tincidunt dui consectetur. Curabitur mollis, nisi vel aliquam tempor, nisl nisi pellentesque velit, vel tempor velit velit vel velit.",
-          author_id: author_id,
-          created_at: DateTime.now,
-          updated_at: DateTime.now
-        )
-      end
   end
   
   puts "DONE!"
