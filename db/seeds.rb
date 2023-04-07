@@ -108,7 +108,7 @@ ApplicationRecord.transaction do
 
 
       User.create!(
-        username: "gandalf_the_grey",
+        username: "theGrey",
         password: "password",
         email: "gandalf@middleearth.com",
         f_name: "Gandalf",
