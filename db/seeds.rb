@@ -2,8 +2,8 @@ ApplicationRecord.transaction do
     puts "Destroying tables..."
   
     # Unnecessary if using `rails db:seed:replant`
-    User.delete_all
     Story.delete_all
+    User.delete_all
 
     ApplicationRecord.connection.reset_pk_sequence!("stories")
     ApplicationRecord.connection.reset_pk_sequence!("users")
