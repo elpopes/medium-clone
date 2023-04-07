@@ -23,8 +23,7 @@
 class Comment < ApplicationRecord
     validates :body, presence: true
     validates :title, presence: true
-end
+  
     belongs_to :comment_author, class_name: 'User'
     belongs_to :story
-  end
-  
+end
