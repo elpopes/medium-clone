@@ -1,7 +1,5 @@
 
 
-import React, { Component } from 'react';
-
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 const CommentPost = ({ parentId, comment, createComment, updateComment }) => {
