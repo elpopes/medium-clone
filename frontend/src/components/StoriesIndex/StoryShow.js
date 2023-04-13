@@ -44,18 +44,24 @@ function StoryShow() {
             <p>{body}</p>
             <img src={story.photoUrl} alt="" />
           </section>
-          <section className="story-update-delete-section">
-            {authorId === sessionUser?.id && (
-              <button
-                onClick={() => {
-                  dispatch(deleteStory(storyId));
-                  history.push("/me-stories");
-                }}
-                className="delete-icon"
-              >
-                <i className="fa-solid fa-trash-can"></i>
-              </button>
-            )}
+          <section className="story-footer">
+            <section className="claps-comments-section">
+              <i class="fa-solid fa-hands-clapping"></i>
+              <i class="fa-regular fa-comment"></i>
+            </section>
+            <section className="story-update-delete-section">
+              {authorId === sessionUser?.id && (
+                <button
+                  onClick={() => {
+                    dispatch(deleteStory(storyId));
+                    history.push("/me-stories");
+                  }}
+                  className="delete-icon"
+                >
+                  <i className="fa-solid fa-trash-can"></i>
+                </button>
+              )}
+            </section>
           </section>
         </div>
       </>
