@@ -46,7 +46,6 @@ function StoryShow() {
           </section>
           <section className="story-footer">
             <section className="claps-comments-section">
-              <i class="fa-solid fa-hands-clapping"></i>
               <i class="fa-regular fa-comment"></i>
             </section>
             <section className="story-update-delete-section">

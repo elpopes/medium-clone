@@ -48,3 +48,20 @@
   cursor: pointer;
   float: right;
 }
+
+.claps-comments-section {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.claps-comments-section i {
+  margin-right: 10px;
+  font-size: 24px;
+  color: #888;
+  cursor: pointer;
+}
+
+.claps-comments-section i:hover {
+  color: #000;
+}
