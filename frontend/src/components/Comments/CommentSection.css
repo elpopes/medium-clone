@@ -1,0 +1,33 @@
+.comments-section {
+  position: fixed;
+  top: 0;
+  right: -650px;
+  width: 650px;
+  height: 100%;
+  transition: right 0.5s ease-in-out;
+  background-color: rgb(246, 246, 246);
+  box-shadow: -2px 0 4px rgba(0, 0, 0, 0.1);
+}
+
+.comments-section.show {
+  right: 0;
+}
+
+.comments-toggle {
+  position: absolute;
+  top: 0;
+  right: -50px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #fff;
+  color: #000;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: right 0.5s ease-in-out;
+}
+
+.comments-toggle:hover {
+  right: 0;
+}
