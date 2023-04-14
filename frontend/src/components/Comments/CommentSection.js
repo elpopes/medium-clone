@@ -1,12 +1,13 @@
 import "./CommentSection.css";
 
 const CommentSection = ({ storyId, showComments, toggleComments }) => {
-  console.log("CommentSection showComments:", showComments);
-
   return (
     <div className={`comments-section ${showComments ? "show" : ""}`}>
       {showComments && (
         <>
+          <div className="cancel-button" onClick={toggleComments}>
+            &times;
+          </div>
           <div className="comments-list">
             {/* Comments for the given storyId will be displayed here */}
           </div>
