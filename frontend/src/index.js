@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 import "./reset.css";
 import "./index.css";
 import { BrowserRouter as Router } from "react-router-dom";
@@ -32,23 +32,24 @@ window.loginUser = loginUser;
 window.logoutUser = logoutUser;
 
 const InitializeApp = () => {
-  ReactDOM.render(
+  return (
     <ModalProvider>
       <Provider store={store}>
         <Router>
           <App />
         </Router>
       </Provider>
-    </ModalProvider>,
-    document.getElementById("root")
+    </ModalProvider>
   );
 };
 
-ReactDOM.render(
-  <React.StrictMode>
-    <InitializeApp />
-  </React.StrictMode>,
-  document.getElementById("root")
-);
+const initialize = async () => {
+  await restoreSession();
+  createRoot(document.getElementById("root")).render(
+    <React.StrictMode>
+      <InitializeApp />
+    </React.StrictMode>
+  );
+};
 
-restoreSession().then(InitializeApp);
+initialize();

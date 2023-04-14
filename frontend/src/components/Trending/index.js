@@ -18,10 +18,11 @@ const Trending = () => {
         <div className="obey-me">
           <i className="fa-solid fa-arrow-trend-up" />
         </div>
-        <h1>Trending on Medium-Earth</h1>
+        <h1>Trending on Medium-Earths</h1>
       </div>
       <ol>
         {stories
+          .slice()
           .reverse()
           .slice(0, 6)
           .map((story, i) => {

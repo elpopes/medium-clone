@@ -18,8 +18,16 @@ const ByLine = ({ userId }) => {
   }
   return (
     <div className="byLine">
-      <img className="avatar" src={user.avatar.photoUrl} alt="img" />
-      <div className="username">{user.username}</div>
+      <img
+        className="avatar"
+        src={
+          user && user.avatar && user.avatar.photoUrl
+            ? user.avatar.photoUrl
+            : "https://medium-earth-seeds.s3.amazonaws.com/users/default.png"
+        }
+        alt="img"
+      />
+      <div className="username">{user && user.username}</div>
     </div>
   );
 };
