@@ -1,8 +1,14 @@
-import { useState } from 'react';
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { useState } from "react";
 
-const CommentPost = ({ storyId, parentId, comment, createComment, updateComment, authorId }) => {
-  const [body, setBody] = useState(comment ? comment.body : '');
+const CommentPost = ({
+  storyId,
+  parentId,
+  comment,
+  createComment,
+  updateComment,
+  authorId,
+}) => {
+  const [body, setBody] = useState(comment ? comment.body : "");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,21 +28,19 @@ const CommentPost = ({ storyId, parentId, comment, createComment, updateComment,
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <FormGroup>
-        <Label for="body">Body</Label>
-        <Input
-          type="textarea"
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label htmlFor="body">Body</label>
+        <textarea
           name="body"
           id="body"
           value={body}
           onChange={(e) => setBody(e.target.value)}
         />
-      </FormGroup>
-      <Button>Submit</Button>
-    </Form>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
   );
 };
 
 export default CommentPost;
-
