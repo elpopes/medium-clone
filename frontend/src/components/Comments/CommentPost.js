@@ -1,42 +1,42 @@
-
-
+import { useState } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
-const CommentPost = ({ parentId, comment, createComment, updateComment }) => {
-    let body, author;
-    return (
-        <Form
-        onSubmit={e => {
-            e.preventDefault();
-            if (comment) {
-            updateComment({
-                id: comment.id,
-                body: body.value,
+const CommentPost = ({ storyId, parentId, comment, createComment, updateComment, authorId }) => {
+  const [body, setBody] = useState(comment ? comment.body : '');
 
-            });
-            } else {
-            createComment({
-                parentId,
-                body: body.value,
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (comment) {
+      updateComment({
+        id: comment.id,
+        body: body,
+      });
+    } else {
+      createComment({
+        story_id: storyId,
+        parent_id: parentId,
+        body: body,
+        author_id: authorId,
+      });
+    }
+  };
 
-            });
-
-            }
-        }}
-        >
-        <FormGroup>
-            <Label for="body">Body</Label>
-            <Input
-            type="textarea"
-            name="body"
-            id="body"
-            defaultValue={comment ? comment.body : ''}
-            innerRef={node => (body = node)}
-            />
-        </FormGroup>
-        <Button>Submit</Button>
-        </Form>
-    );
+  return (
+    <Form onSubmit={handleSubmit}>
+      <FormGroup>
+        <Label for="body">Body</Label>
+        <Input
+          type="textarea"
+          name="body"
+          id="body"
+          value={body}
+          onChange={(e) => setBody(e.target.value)}
+        />
+      </FormGroup>
+      <Button>Submit</Button>
+    </Form>
+  );
 };
 
 export default CommentPost;
+

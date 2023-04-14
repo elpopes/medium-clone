@@ -2,6 +2,7 @@
   "dependencies": {
     "react-redux": "^8.0.5",
     "react-router-dom": "^5.3.4",
+    "reactstrap": "^9.1.9",
     "redux": "^4.2.1",
     "redux-thunk": "^2.4.2"
   },
@@ -30,5 +31,5 @@
   "description": "",
   "engines": {
     "node": "16.x"
-    }
+  }
 }

@@ -1,4 +1,5 @@
 import "./CommentSection.css";
+import CommentPost from "./CommentPost";
 
 const CommentSection = ({ storyId, showComments, toggleComments }) => {
   const counter = 0;
@@ -14,7 +15,7 @@ const CommentSection = ({ storyId, showComments, toggleComments }) => {
       {showComments && (
         <>
           <div className="post-comment">
-            {/* PostComment component for the given storyId will be rendered here */}
+            <CommentPost storyId={storyId} />
           </div>
           <div className="comments-list">
             {/* Comments for the given storyId will be displayed here */}
