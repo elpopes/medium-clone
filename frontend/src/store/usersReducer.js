@@ -97,6 +97,7 @@ export const deleteUser = (userId) => (dispatch) => {
 const usersReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_USER:
+      debugger;
       return { ...state, [action.user.user.id]: action.user };
     case RECEIVE_USERS:
       return { ...state, ...action.users };
