@@ -13,17 +13,17 @@ const CommentPost = ({ storyId, parentId, comment }) => {
 
   const [inputColor, setInputColor] = useState("grey");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (comment) {
-      dispatch(
+      await dispatch(
         updateComment(storyId, {
           id: comment.id,
           body: body,
         })
       );
     } else {
-      dispatch(
+      await dispatch(
         createComment(storyId, {
           story_id: storyId,
           parentId: parentId,
@@ -32,6 +32,8 @@ const CommentPost = ({ storyId, parentId, comment }) => {
         })
       );
     }
+    setBody("What are ye thoughts?");
+    setInputColor("grey");
   };
 
   const handleFocus = () => {
