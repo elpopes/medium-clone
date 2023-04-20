@@ -127,12 +127,20 @@ const storiesReducer = (state = {}, action) => {
     case RECEIVE_COMMENT:
       const { storyId, comment } = action.payload;
       return produce(state, (draftState) => {
-        draftState[storyId].comments[comment.id] = comment;
+        if (!draftState[storyId].comments) {
+          draftState[storyId].comments = [];
+        }
+        draftState[storyId].comments.push(comment);
       });
     case REMOVE_COMMENT:
       const { storyId: id, commentId } = action.payload;
       return produce(state, (draftState) => {
-        delete draftState[id].comments[commentId];
+        const commentIndex = draftState[id].comments.findIndex(
+          (comment) => comment.id === commentId
+        );
+        if (commentIndex !== -1) {
+          draftState[id].comments.splice(commentIndex, 1);
+        }
       });
     default:
       return state;
