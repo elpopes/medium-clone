@@ -86,4 +86,3 @@ const storiesReducer = (state = {}, action) => {
 };
 
 export default storiesReducer;
-//

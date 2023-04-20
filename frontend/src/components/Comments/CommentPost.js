@@ -17,16 +17,16 @@ const CommentPost = ({ storyId, parentId, comment }) => {
     e.preventDefault();
     if (comment) {
       dispatch(
-        updateComment({
+        updateComment(storyId, {
           id: comment.id,
           body: body,
         })
       );
     } else {
       dispatch(
-        createComment({
+        createComment(storyId, {
           story_id: storyId,
-          parent_id: parentId,
+          parentId: parentId,
           body: body,
           author_id: authorId,
         })

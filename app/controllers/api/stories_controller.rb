@@ -8,6 +8,7 @@
   
     def show
       @story = Story.find(params[:id])
+      render json: @story.to_json(include: :comments)
     end
   
     def new
