@@ -1,4 +1,5 @@
 import csrfFetch from "./csrf.js";
+import produce from "immer";
 
 export const RECEIVE_STORIES = "stories/RECEIVE_STORIES";
 export const RECEIVE_STORY = "stories/RECEIVE_STORY";
@@ -86,11 +87,12 @@ export const getStories = (state) => {
 export const createComment = (storyId, comment) => async (dispatch) => {
   const res = await csrfFetch(`/api/stories/${storyId}/comments`, {
     method: "POST",
-    body: JSON.stringify({ body: comment.body }),
+    body: JSON.stringify(comment),
     headers: { "Content-Type": "application/json" },
   });
 
   const data = await res.json();
+  debugger;
   dispatch(receiveComment(storyId, data));
 };
 
@@ -125,29 +127,14 @@ const storiesReducer = (state = {}, action) => {
       return newState;
     case RECEIVE_COMMENT:
       const { storyId, comment } = action.payload;
-      return {
-        ...state,
-        [storyId]: {
-          ...state[storyId],
-          comments: {
-            ...(state[storyId].comments || {}),
-            [comment.id]: comment,
-          },
-        },
-      };
+      return produce(state, (draftState) => {
+        draftState[storyId].comments[comment.id] = comment;
+      });
     case REMOVE_COMMENT:
       const { storyId: id, commentId } = action.payload;
-      return {
-        ...state,
-        [id]: {
-          ...state[id],
-          comments: Object.fromEntries(
-            Object.entries(state[id].comments).filter(
-              ([key]) => key !== commentId
-            )
-          ),
-        },
-      };
+      return produce(state, (draftState) => {
+        delete draftState[id].comments[commentId];
+      });
     default:
       return state;
   }

@@ -18,10 +18,8 @@ class Api::CommentsController < ApplicationController
         @comment.comment_author_id = current_user.id
       
         if @comment.save
-          render :show
+            render json: @comment
         else
-            puts "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&"
-            puts @comment.errors.full_messages
           render json: @comment.errors.full_messages, status: 422
         end
       end
