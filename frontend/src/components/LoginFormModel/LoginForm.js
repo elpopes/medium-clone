@@ -34,6 +34,7 @@ function LoginForm() {
         value={credential}
         onChange={onCredentialChange}
         required
+        autoComplete="username"
       />
       <label htmlFor="password">Password</label>
       <input
@@ -42,6 +43,7 @@ function LoginForm() {
         value={password}
         onChange={onPasswordChange}
         required
+        autoComplete="current-password"
       />
       <button type="submit">Log In</button>
       <br />

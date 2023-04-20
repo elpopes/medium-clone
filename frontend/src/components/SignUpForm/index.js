@@ -26,10 +26,9 @@ function SignUpForm() {
       ).catch(async (res) => {
         let data;
         try {
-          // .clone() essentially allows you to read the response body twice
           data = await res.clone().json();
         } catch {
-          data = await res.text(); // Will hit this case if the server is down
+          data = await res.text();
         }
         if (data?.errors) setErrors(data.errors);
         else if (data) setErrors([data]);
@@ -56,6 +55,7 @@ function SignUpForm() {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           required
+          autoComplete="username"
         />
       </label>
       <label>
@@ -65,6 +65,7 @@ function SignUpForm() {
           value={f_name}
           onChange={(e) => setFname(e.target.value)}
           required
+          autoComplete="given-name"
         />
       </label>
       <label>
@@ -74,6 +75,7 @@ function SignUpForm() {
           value={l_name}
           onChange={(e) => setLname(e.target.value)}
           required
+          autoComplete="surname"
         />
       </label>
       <label>
@@ -83,16 +85,19 @@ function SignUpForm() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
+          autoComplete="email"
         />
       </label>
 
       <label>
         Password
         <input
+          id="password"
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
+          autoComplete="new-password"
         />
       </label>
       <label>
@@ -102,6 +107,7 @@ function SignUpForm() {
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
           required
+          autoComplete="new-password"
         />
       </label>
       <button type="submit">Sign Up</button>
