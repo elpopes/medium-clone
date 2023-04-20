@@ -4,8 +4,6 @@ import ByLine from "../Avatar/byLine";
 import { createComment } from "../../store/commentsReducer";
 import { updateComment } from "../../store/commentsReducer";
 
-//we need to update the store with the new comment
-
 const CommentPost = ({ storyId, parentId, comment }) => {
   const authorId = useSelector((state) => state.session.user?.id);
   const dispatch = useDispatch();
@@ -19,7 +17,6 @@ const CommentPost = ({ storyId, parentId, comment }) => {
     e.preventDefault();
     if (comment) {
       dispatch(
-        // Add this line
         updateComment({
           id: comment.id,
           body: body,
@@ -27,7 +24,6 @@ const CommentPost = ({ storyId, parentId, comment }) => {
       );
     } else {
       dispatch(
-        // Add this line
         createComment({
           story_id: storyId,
           parent_id: parentId,
