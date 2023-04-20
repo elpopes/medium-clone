@@ -1,3 +1,5 @@
+import csrfFetch from "./csrf.js";
+
 export const RECEIVE_COMMENTS = "comments/RECEIVE_COMMENTS";
 export const receiveComments = (comments) => ({
   type: RECEIVE_COMMENTS,
@@ -42,14 +44,17 @@ export const fetchComment = (commentId) => async (dispatch) => {
   }
 };
 
-export const createComment = (comment) => (dispatch) => {
-  return fetch("/api/comments", {
+export const createComment = (comment) => async (dispatch) => {
+  const { story_id } = comment;
+
+  const res = await csrfFetch(`/api/stories/${story_id}/comments`, {
     method: "POST",
     body: JSON.stringify(comment),
     headers: { "Content-Type": "application/json" },
-  })
-    .then((res) => res.json())
-    .then((comment) => dispatch(receiveComment(comment)));
+  });
+
+  const data = await res.json();
+  dispatch(receiveComment(data));
 };
 
 export const updateComment = (comment) => (dispatch) => {
