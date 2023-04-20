@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import ByLine from "../Avatar/byLine";
 import { createComment } from "../../store/commentsReducer";
 import { updateComment } from "../../store/commentsReducer";
@@ -8,6 +8,7 @@ import { updateComment } from "../../store/commentsReducer";
 
 const CommentPost = ({ storyId, parentId, comment }) => {
   const authorId = useSelector((state) => state.session.user?.id);
+  const dispatch = useDispatch();
   const [body, setBody] = useState(
     comment ? comment.body : "What are ye thoughts?"
   );
@@ -17,17 +18,23 @@ const CommentPost = ({ storyId, parentId, comment }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (comment) {
-      updateComment({
-        id: comment.id,
-        body: body,
-      });
+      dispatch(
+        // Add this line
+        updateComment({
+          id: comment.id,
+          body: body,
+        })
+      );
     } else {
-      createComment({
-        story_id: storyId,
-        parent_id: parentId,
-        body: body,
-        author_id: authorId,
-      });
+      dispatch(
+        // Add this line
+        createComment({
+          story_id: storyId,
+          parent_id: parentId,
+          body: body,
+          author_id: authorId,
+        })
+      );
     }
   };
 

@@ -46,6 +46,7 @@ export const fetchComment = (commentId) => async (dispatch) => {
 
 export const createComment = (comment) => async (dispatch) => {
   const { story_id } = comment;
+  debugger;
 
   const res = await csrfFetch(`/api/stories/${story_id}/comments`, {
     method: "POST",
