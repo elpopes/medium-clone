@@ -92,7 +92,6 @@ export const createComment = (storyId, comment) => async (dispatch) => {
   });
 
   const data = await res.json();
-  debugger;
   dispatch(receiveComment(storyId, data));
 };
 
