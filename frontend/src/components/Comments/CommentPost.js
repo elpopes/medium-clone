@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import ByLine from "../Avatar/byLine";
-import { createComment } from "../../store/commentsReducer";
-import { updateComment } from "../../store/commentsReducer";
+import { createComment } from "../../store/storiesReducer";
+import { updateComment } from "../../store/storiesReducer";
 
 const CommentPost = ({ storyId, parentId, comment }) => {
   const authorId = useSelector((state) => state.session.user?.id);
