@@ -1,8 +1,15 @@
+import { useSelector } from "react-redux";
+import { useState, useEffect } from "react";
 import "./CommentSection.css";
 import CommentPost from "./CommentPost";
 
 const CommentSection = ({ storyId, showComments, toggleComments }) => {
-  const counter = 0;
+  const comments = useSelector((state) => state.stories[storyId]?.comments);
+  const [counter, setCounter] = useState(comments ? comments.length : 0);
+
+  useEffect(() => {
+    setCounter(comments ? comments.length : 0);
+  }, [comments]);
 
   return (
     <div className={`comments-section ${showComments ? "show" : ""}`}>
