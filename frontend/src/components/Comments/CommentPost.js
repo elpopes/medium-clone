@@ -8,7 +8,11 @@ import { updateComment } from "../../store/commentsReducer";
 
 const CommentPost = ({ storyId, parentId, comment }) => {
   const authorId = useSelector((state) => state.session.user?.id);
-  const [body, setBody] = useState(comment ? comment.body : "");
+  const [body, setBody] = useState(
+    comment ? comment.body : "What are ye thoughts?"
+  );
+
+  const [inputColor, setInputColor] = useState("grey");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -27,6 +31,20 @@ const CommentPost = ({ storyId, parentId, comment }) => {
     }
   };
 
+  const handleFocus = () => {
+    if (body === "What are ye thoughts?") {
+      setBody("");
+    }
+    setInputColor("black");
+  };
+
+  const handleBlur = () => {
+    if (body.trim() === "") {
+      setBody("What are ye thoughts?");
+      setInputColor("grey");
+    }
+  };
+
   return (
     <div>
       {authorId && <ByLine userId={authorId} />}
@@ -38,6 +56,9 @@ const CommentPost = ({ storyId, parentId, comment }) => {
             id="body"
             value={body}
             onChange={(e) => setBody(e.target.value)}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+            style={{ color: inputColor }}
           />
         </div>
         <button type="submit">Submit</button>
