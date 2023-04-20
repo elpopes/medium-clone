@@ -4,7 +4,6 @@
 #
 #  id                :bigint           not null, primary key
 #  body              :text
-#  title             :string
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
 #  comment_author_id :bigint           not null
@@ -22,7 +21,6 @@
 #
 class Comment < ApplicationRecord
     validates :body, presence: true
-    validates :title, presence: true
   
     belongs_to :comment_author, class_name: 'User'
     belongs_to :story

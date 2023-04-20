@@ -24,4 +24,5 @@ class Story < ApplicationRecord
   
     belongs_to :author, class_name: :User
     has_one_attached :photo
+    has_many :comments, dependent: :destroy
   end

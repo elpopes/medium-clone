@@ -1,6 +1,6 @@
 class Api::CommentsController < ApplicationController
     before_action :require_logged_in, only: [:create, :update, :destroy]
-    before_action :set_story
+    before_action :set_story, only: [:create, :update, :destroy]
     before_action :set_comment, only: [:show, :update, :destroy]
   
     def index
@@ -14,10 +14,14 @@ class Api::CommentsController < ApplicationController
     end
   
     def create
-        @comment = current_user.comments.new(comment_params)
+        @comment = @story.comments.new(comment_params)
+        @comment.comment_author_id = current_user.id
+      
         if @comment.save
           render :show
         else
+            puts "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&"
+            puts @comment.errors.full_messages
           render json: @comment.errors.full_messages, status: 422
         end
       end
@@ -41,7 +45,11 @@ class Api::CommentsController < ApplicationController
     private
   
     def comment_params
-        params.require(:comment).permit(:title, :body, :comment_author_id)
+        params.require(:comment).permit(:body, :comment_author_id, :story_id)
+    end
+
+    def set_story
+        @story = Story.find(params[:story_id])
     end
     
   end
