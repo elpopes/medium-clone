@@ -11,7 +11,6 @@ const AllComments = ({ storyId }) => {
 
   return (
     <div className="all-comments-container">
-      <h2>All Comments</h2>
       {comments.length > 0 ? (
         <ul>
           {comments.map((comment) => {
