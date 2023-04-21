@@ -36,21 +36,21 @@ const ProfileDropDown = () => {
         >
           <div className="navigation">
             <li>
-              <i class="fa-regular fa-user"></i>
+              <i className="fa-regular fa-user"></i>
               <span>Profile</span>
             </li>
             <li>
-              <i class="fa-regular fa-bookmark"></i>
+              <i className="fa-regular fa-bookmark"></i>
               <span>Lists</span>
             </li>
             <li>
               <Link className="dropdown-links" to="/me-stories">
-                <i class="fa-regular fa-file-lines"></i>
+                <i className="fa-regular fa-file-lines"></i>
                 <span>Stories</span>
               </Link>
             </li>
             <li>
-              <i class="fa-solid fa-chart-line"></i>
+              <i className="fa-solid fa-chart-line"></i>
               <span>Stats</span>
             </li>
           </div>
