@@ -23,7 +23,6 @@ enhancer = composeEnhancers(applyMiddleware(thunk, logger));
 // }
 
 const configureStore = (preloadedState) => {
-  console.log(preloadedState);
   return createStore(rootReducer, preloadedState, enhancer);
 };
 

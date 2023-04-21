@@ -131,3 +131,34 @@
 .all-comments-container p {
   padding: 20px;
 }
+
+.comment-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.comment-options {
+  cursor: pointer;
+}
+
+.delete-popup {
+  position: absolute;
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+.warning-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}

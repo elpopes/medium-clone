@@ -36,11 +36,10 @@ export const fetchStories = () => async (dispatch) => {
 };
 
 export const deleteStory = (storyId) => (dispatch) => {
-  return csrfFetch(`/api/stories/${storyId}`, {
+  return csrfFetch(`api/stories/${storyId}`, {
     method: "DELETE",
   }).then(() => dispatch(removeStory(storyId)));
 };
-
 export const removeComment = (storyId, commentId) => ({
   type: REMOVE_COMMENT,
   payload: { storyId, commentId },
@@ -107,7 +106,7 @@ export const updateComment = (storyId, comment) => async (dispatch) => {
 };
 
 export const deleteComment = (storyId, commentId) => async (dispatch) => {
-  await csrfFetch(`/api/comments/${commentId}`, {
+  await csrfFetch(`/api/stories/${storyId}/comments/${commentId}`, {
     method: "DELETE",
   });
 

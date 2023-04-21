@@ -35,10 +35,12 @@ class Api::CommentsController < ApplicationController
     end
 
     def destroy
-        @comment = current_user.comments.find(params[:id])
-        @comment.destroy
-        render :show
-    end
+        if @comment.destroy
+          render json: {}, status: 204
+        else
+          render json: @comment.errors.full_messages, status: 422
+        end
+      end
   
     private
   
@@ -48,6 +50,10 @@ class Api::CommentsController < ApplicationController
 
     def set_story
         @story = Story.find(params[:story_id])
+    end
+
+    def set_comment
+        @comment = Comment.find(params[:id])
     end
     
   end

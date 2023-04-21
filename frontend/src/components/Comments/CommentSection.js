@@ -5,7 +5,6 @@ import CommentPost from "./CommentPost";
 import AllComments from "./AllComments";
 
 const CommentSection = ({ storyId, showComments, toggleComments }) => {
-  console.log(useSelector((state) => state.stories[storyId].comments));
   const comments = useSelector((state) => state.stories[storyId]?.comments);
   const [counter, setCounter] = useState(comments ? comments.length : 0);
 
