@@ -57,6 +57,39 @@
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
   margin: 20px 10px;
   border-bottom: 1px solid #ddd;
+  padding: 20px;
+}
+
+.post-comment form {
+  display: flex;
+  flex-direction: column;
+}
+
+.post-comment textarea {
+  width: 100%;
+  height: 250px;
+  border: none;
+  outline: none;
+  resize: none;
+  background-color: rgba(255, 255, 255, 0.02);
+  padding: 12px;
+  margin-bottom: 12px;
+}
+
+.post-comment button {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.post-comment button:hover {
+  background-color: #45a049;
 }
 
 .comments-list {
