@@ -52,3 +52,13 @@
 .cancel-button:hover {
   color: black;
 }
+
+.post-comment {
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  margin: 20px 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.comments-list {
+  margin: 0 10px;
+}
