@@ -65,15 +65,15 @@ ol li {
 }
 
 .byLine > .avatar {
-  width: 20px;
-  height: 20px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   margin-right: 10px;
 }
 
 .byLine > .username {
-  font-size: 13px;
-  font-weight: 700;
+  font-size: 18px;
+  font-weight: 400;
 }
 
 @media (max-width: 991px) {

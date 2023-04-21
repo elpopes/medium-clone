@@ -7,10 +7,20 @@
   transition: right 0.5s ease-in-out;
   background-color: rgb(246, 246, 246);
   box-shadow: -2px 0 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
 }
 
 .comments-section.show {
   right: 0;
+}
+
+.comments-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
 }
 
 .comments-toggle {
@@ -33,9 +43,6 @@
 }
 
 .cancel-button {
-  position: absolute;
-  top: 20px;
-  right: 20px;
   font-size: 34px;
   cursor: pointer;
   color: grey;
@@ -43,10 +50,7 @@
 }
 
 .retorts-title {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  font-size: 24px;
+  font-size: 20px;
 }
 
 .cancel-button:hover {
@@ -54,15 +58,18 @@
 }
 
 .post-comment {
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
-  margin: 20px 10px;
-  border-bottom: 1px solid #ddd;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  margin: 20px 0 20px 10px;
   padding: 20px;
+  border-radius: 10px;
 }
 
 .post-comment form {
   display: flex;
   flex-direction: column;
+  padding: 0;
+  margin: 0;
+  align-items: left;
 }
 
 .post-comment textarea {
@@ -72,8 +79,9 @@
   outline: none;
   resize: none;
   background-color: rgba(255, 255, 255, 0.02);
-  padding: 12px;
   margin-bottom: 12px;
+  margin-right: 10px;
+  text-align: left;
 }
 
 .post-comment button {

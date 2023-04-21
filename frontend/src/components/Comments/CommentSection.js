@@ -15,12 +15,14 @@ const CommentSection = ({ storyId, showComments, toggleComments }) => {
 
   return (
     <div className={`comments-section ${showComments ? "show" : ""}`}>
-      <span className="cancel-button" onClick={toggleComments}>
-        &times;
-      </span>
-      <span className="retorts-title">
-        {counter > 0 ? `Retorts (${counter})` : "Retorts"}
-      </span>
+      <div className="comments-header">
+        <span className="retorts-title">
+          {counter > 0 ? `Retorts (${counter})` : "Retorts"}
+        </span>
+        <span className="cancel-button" onClick={toggleComments}>
+          &times;
+        </span>
+      </div>
       {showComments && (
         <>
           <div className="post-comment">
