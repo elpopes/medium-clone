@@ -55,7 +55,7 @@ const CommentPost = ({ storyId, parentId, comment }) => {
       {authorId && <ByLine userId={authorId} />}
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="body">Body</label>
+          <label htmlFor="body"></label>
           <textarea
             name="body"
             id="body"

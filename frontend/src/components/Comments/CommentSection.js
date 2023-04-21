@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import "./CommentSection.css";
 import CommentPost from "./CommentPost";
+import AllComments from "./AllComments";
 
 const CommentSection = ({ storyId, showComments, toggleComments }) => {
   console.log(useSelector((state) => state.stories[storyId].comments));
@@ -26,7 +27,7 @@ const CommentSection = ({ storyId, showComments, toggleComments }) => {
             <CommentPost storyId={storyId} />
           </div>
           <div className="comments-list">
-            {/* Comments for the given storyId will be displayed here */}
+            <AllComments storyId={storyId} />
           </div>
         </>
       )}
