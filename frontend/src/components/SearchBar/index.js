@@ -8,35 +8,36 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 library.add(fas);
 dom.watch();
 
-const SearchBar = () => {
+const SearchBar = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleChange = (event) => {
     setSearchTerm(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(`Searching for: ${searchTerm}`);
+    if (onSearch) {
+      await onSearch(searchTerm);
+    }
   };
 
   return (
-  <div className="search-container">
-    <form onSubmit={handleSubmit} className="search-bar">
-      <div className="input-with-icon">
-        <FontAwesomeIcon icon="magnifying-glass" className="magnifying-glass" />
-        <input
-          type="search"
-          placeholder="Search Medium-Earth"
-          value={searchTerm}
-          onChange={handleChange}
-          className="search-input"
-        />
-      </div>
-    </form>
-  </div>
-);
-
+    <div className="search-container">
+      <form onSubmit={handleSubmit} className="search-bar">
+        <div className="input-with-icon">
+          <FontAwesomeIcon icon="search" className="magnifying-glass" />
+          <input
+            type="search"
+            placeholder="Search Medium-Earth"
+            value={searchTerm}
+            onChange={handleChange}
+            className="search-input"
+          />
+        </div>
+      </form>
+    </div>
+  );
 };
 
 export default SearchBar;
