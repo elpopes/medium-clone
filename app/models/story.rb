@@ -19,6 +19,11 @@
 #  fk_rails_...  (author_id => users.id)
 #
 class Story < ApplicationRecord
+include PgSearch::Model
+    pg_search_scope :search, against: [:title, :body],
+        using: {
+            tsearch: {prefix: true}
+        }
     validates :body, presence: true
     validates :title, presence: true
   
