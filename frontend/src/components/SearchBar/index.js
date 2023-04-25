@@ -19,7 +19,7 @@ const SearchBar = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    await handleSearch(searchTerm);
+    handleSearch(searchTerm);
   };
 
   return (
