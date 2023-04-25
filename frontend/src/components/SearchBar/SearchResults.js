@@ -12,21 +12,27 @@ const SearchResults = () => {
 
   return (
     <SearchContext.Consumer>
-      {({ searchResults }) => (
-        <>
-          {currentUser ? <SignedInNav /> : <SignedOutNav />}
-          <ul className="search-results-list">
-            <h1>Query Outcomes</h1>
-            {searchResults.map((story, i) => {
-              return (
-                <Link to={`/stories/${story.id}`} key={i}>
-                  <StoryShow story={story} />
-                </Link>
-              );
-            })}
-          </ul>
-        </>
-      )}
+      {({ searchResults }) => {
+        console.log("searchResults from context:", searchResults);
+
+        return (
+          <>
+            {currentUser ? <SignedInNav /> : <SignedOutNav />}
+            <ul className="search-results-list">
+              <h1>Query Outcomes</h1>
+              {searchResults && searchResults.length > 0 ? (
+                searchResults.map((story, i) => (
+                  <Link to={`/stories/${story.id}`} key={i}>
+                    <StoryShow story={story} />
+                  </Link>
+                ))
+              ) : (
+                <p>No search results found.</p>
+              )}
+            </ul>
+          </>
+        );
+      }}
     </SearchContext.Consumer>
   );
 };
