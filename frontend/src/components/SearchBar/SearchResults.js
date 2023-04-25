@@ -32,13 +32,15 @@ const SearchResults = () => {
       {({ searchResults }) => {
         console.log("searchResults from context:", searchResults);
 
+        const stories = searchResults.stories || [];
+
         return (
           <>
             {currentUser ? <SignedInNav /> : <SignedOutNav />}
             <ul className="search-results-list">
               <h1>Query Outcomes</h1>
-              {searchResults && searchResults.length > 0 ? (
-                searchResults.map((story, i) => (
+              {stories.length > 0 ? (
+                stories.map((story, i) => (
                   <Link to={`/stories/${story.id}`} key={i}>
                     <SearchResult story={story} />
                   </Link>

@@ -2,9 +2,9 @@ class Api::StoriesController < ApplicationController
     before_action :require_logged_in, except: [:show, :index, :search]
   
     def search
-      @stories = Story.search(params[:query])
-      render json: @stories
-    end
+        @stories = Story.search(params[:query])
+        render 'api/stories/search'
+      end
   
     def index
       @stories = Story.all.order(created_at: :desc)
