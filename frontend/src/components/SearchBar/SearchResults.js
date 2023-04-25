@@ -4,12 +4,22 @@ import { Link } from "react-router-dom";
 import SignedInNav from "../signedInNav";
 import SignedOutNav from "../signedOutNav";
 import SearchContext from "./SearchContext";
+import ByLine from "../Avatar/byLine";
 
 const SearchResult = ({ story }) => {
+  const truncateBody = (body) => {
+    const words = body.split(" ");
+    if (words.length <= 25) return body;
+
+    const truncatedWords = words.slice(0, 25);
+    return `${truncatedWords.join(" ")}...`;
+  };
+
   return (
     <li>
+      <ByLine userId={story.author_id} />
       <h2>{story.title}</h2>
-      <p>{story.body}</p>
+      <p>{truncateBody(story.body)}</p>
     </li>
   );
 };
