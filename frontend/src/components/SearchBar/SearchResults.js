@@ -17,7 +17,8 @@ const SearchResult = ({ story }) => {
 
   return (
     <li>
-      <ByLine userId={story.author_id} />
+      <ByLine userId={story.authorId} />
+      <img src={story.photoUrl} alt={story.title} />
       <h2>{story.title}</h2>
       <p>{truncateBody(story.body)}</p>
     </li>
