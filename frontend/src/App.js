@@ -7,6 +7,7 @@ import StoryFormPage from "./components/StoriesIndex/StoryFormPage";
 import MyStoriesIndex from "./components/StoriesIndex/MyStories";
 import StoryShow from "./components/StoriesIndex/StoryShow";
 import Account from "./components/Settings/Account";
+import SearchResults from "./components/SearchBar/SearchResults";
 
 function App() {
   const loggedIn = useSelector((state) => state.session.user);
@@ -18,6 +19,7 @@ function App() {
           <Route path="/me-stories/" component={MyStoriesIndex} />
           <Route path="/me-account/" component={Account} />
           <Route path="/stories/:storyId" component={StoryShow} />
+          <Route path="/searchresults" component={SearchResults} />
           {/* <Route exact path="/:userName" component={UserShowPage} /> */}
           <Route exact path="/" component={loggedIn ? HomePage : LandingPage} />
         </Switch>
