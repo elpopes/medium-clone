@@ -31,8 +31,6 @@ const SearchResults = () => {
   return (
     <SearchContext.Consumer>
       {({ searchResults }) => {
-        console.log("searchResults from context:", searchResults);
-
         const stories = searchResults.stories || [];
 
         return (

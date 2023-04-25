@@ -29,7 +29,7 @@ const AllComments = ({ storyId }) => {
             return (
               <li key={comment.id}>
                 <div className="comment-container">
-                  <ByLine userId={comment.comment_author_id} />
+                  <ByLine userId={comment.commentAuthor.id} />
                   {isAuthor && (
                     <span
                       className="comment-options"

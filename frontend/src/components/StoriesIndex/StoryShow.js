@@ -29,11 +29,13 @@ function StoryShow() {
     dispatch(fetchStory(storyId));
   }, [dispatch, storyId]);
 
+  console.log("Story:", story);
+
   if (!story) {
     return null;
   }
 
-  const { author_id, title, body } = story;
+  const { authorId, title, body } = story;
 
   return (
     <>
@@ -41,7 +43,7 @@ function StoryShow() {
         {loggedIn ? <SignedInNav /> : <SignedOutNav />}
       </div>
       <div className="story-show">
-        <ByLine userId={author_id} />
+        <ByLine userId={authorId} />
         <div className="story-title">
           <h1>{title}</h1>
         </div>
@@ -59,7 +61,7 @@ function StoryShow() {
             />
           </section>
           <section className="story-update-delete-section">
-            {author_id === sessionUser?.id && (
+            {authorId === sessionUser?.id && (
               <button
                 onClick={() => {
                   dispatch(deleteStory(storyId));

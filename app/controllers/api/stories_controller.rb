@@ -12,9 +12,9 @@ class Api::StoriesController < ApplicationController
     end
   
     def show
-      @story = Story.find(params[:id])
-      render json: @story.to_json(include: :comments)
-    end
+        @story = Story.find(params[:id])
+        render :show
+      end
   
     def new
       @story = Story.new
