@@ -3,9 +3,16 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import SignedInNav from "../signedInNav";
 import SignedOutNav from "../signedOutNav";
-import StoryShow from "../StoriesIndex/StoryShow";
-// import "./SearchResults.css";
 import SearchContext from "./SearchContext";
+
+const SearchResult = ({ story }) => {
+  return (
+    <li>
+      <h2>{story.title}</h2>
+      <p>{story.body}</p>
+    </li>
+  );
+};
 
 const SearchResults = () => {
   const currentUser = useSelector((state) => state.session.user);
@@ -23,7 +30,7 @@ const SearchResults = () => {
               {searchResults && searchResults.length > 0 ? (
                 searchResults.map((story, i) => (
                   <Link to={`/stories/${story.id}`} key={i}>
-                    <StoryShow story={story} />
+                    <SearchResult story={story} />
                   </Link>
                 ))
               ) : (
