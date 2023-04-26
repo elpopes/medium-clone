@@ -85,7 +85,7 @@ const StoryFormPage = () => {
           />
         </div>
         <div className="upload-icon" onClick={handlePlusClick}>
-          <i class="fa-solid fa-circle-plus"></i>
+          <i className="fa-solid fa-circle-plus"></i>
         </div>
         <div className="photo-container">
           <input type="file" ref={fileRef} onChange={handleFile} />
