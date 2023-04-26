@@ -52,6 +52,31 @@
 }
 
 .animation {
-  width: 50%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 600px;
   height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.me {
+  position: absolute;
+  font-size: 1.5rem;
+  font-weight: bold;
+  opacity: 0;
+  animation: fadeInOut 2s linear infinite;
+  width: 50px;
+  height: 24px;
+}
+
+@keyframes fadeInOut {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
 }
