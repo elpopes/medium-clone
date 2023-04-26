@@ -2,13 +2,16 @@ import React, { useState } from "react";
 import SearchContext from "./SearchContext";
 
 const SearchProvider = ({ children }) => {
-  const [searchResults, setSearchResults] = useState([]);
+  const [searchResults, setSearchResults] = useState({
+    stories: [],
+    searchTerm: "",
+  });
 
   const handleSearch = async (query) => {
     try {
       const response = await fetch(`/api/stories/search?query=${query}`);
       const data = await response.json();
-      setSearchResults(data);
+      setSearchResults({ stories: data, searchTerm: query });
     } catch (error) {
       console.error("Error fetching search results:", error);
     }

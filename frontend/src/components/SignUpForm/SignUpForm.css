@@ -1,0 +1,47 @@
+.signup-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.signup-form-container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.signup-form-container form h1 {
+  font-size: 24px;
+  padding-top: 30px;
+  margin-bottom: 30px;
+}
+
+.signup-form-container label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.signup-form-container input[type="text"],
+.signup-form-container input[type="password"] {
+  padding: 10px;
+  width: 200px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+
+.signup-form-container input[type="submit"] {
+  padding: 10px 20px;
+  background-color: lightblue;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+}
+
+.signup-form-container ul li {
+  color: red;
+}

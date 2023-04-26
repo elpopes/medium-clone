@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
+import "./SignUpForm.css";
 
 function SignUpForm() {
   const dispatch = useDispatch();
@@ -41,77 +42,79 @@ function SignUpForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h1>Join Medium-Earth</h1>
-      <ul>
-        {errors.map((error) => (
-          <li key={error}>{error}</li>
-        ))}
-      </ul>
-      <label>
-        Username
-        <input
-          type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-          autoComplete="username"
-        />
-      </label>
-      <label>
-        First Name
-        <input
-          type="text"
-          value={f_name}
-          onChange={(e) => setFname(e.target.value)}
-          required
-          autoComplete="given-name"
-        />
-      </label>
-      <label>
-        Last Name
-        <input
-          type="text"
-          value={l_name}
-          onChange={(e) => setLname(e.target.value)}
-          required
-          autoComplete="surname"
-        />
-      </label>
-      <label>
-        Email
-        <input
-          type="text"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-          autoComplete="email"
-        />
-      </label>
+    <div className="signup-form-container">
+      <form onSubmit={handleSubmit}>
+        <h1>Join Medium-Earth</h1>
+        <ul>
+          {errors.map((error) => (
+            <li key={error}>{error}</li>
+          ))}
+        </ul>
+        <label>
+          Username
+          <input
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+            autoComplete="username"
+          />
+        </label>
+        <label>
+          First Name
+          <input
+            type="text"
+            value={f_name}
+            onChange={(e) => setFname(e.target.value)}
+            required
+            autoComplete="given-name"
+          />
+        </label>
+        <label>
+          Last Name
+          <input
+            type="text"
+            value={l_name}
+            onChange={(e) => setLname(e.target.value)}
+            required
+            autoComplete="surname"
+          />
+        </label>
+        <label>
+          Email
+          <input
+            type="text"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            autoComplete="email"
+          />
+        </label>
 
-      <label>
-        Password
-        <input
-          id="password"
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-          autoComplete="new-password"
-        />
-      </label>
-      <label>
-        Confirm Password
-        <input
-          type="password"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-          required
-          autoComplete="new-password"
-        />
-      </label>
-      <button type="submit">Sign Up</button>
-    </form>
+        <label>
+          Password
+          <input
+            id="password"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            autoComplete="new-password"
+          />
+        </label>
+        <label>
+          Confirm Password
+          <input
+            type="password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            required
+            autoComplete="new-password"
+          />
+        </label>
+        <button type="submit">Sign Up</button>
+      </form>
+    </div>
   );
 }
 

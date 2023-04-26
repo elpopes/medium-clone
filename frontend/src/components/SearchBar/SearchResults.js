@@ -5,6 +5,7 @@ import SignedInNav from "../signedInNav";
 import SignedOutNav from "../signedOutNav";
 import SearchContext from "./SearchContext";
 import ByLine from "../Avatar/byLine";
+import styles from "./SearchResults.module.css";
 
 const SearchResult = ({ story }) => {
   const truncateBody = (body) => {
@@ -16,11 +17,15 @@ const SearchResult = ({ story }) => {
   };
 
   return (
-    <li>
-      <ByLine userId={story.authorId} />
+    <li className={styles["search-result"]}>
+      <div className={styles["search-result-text"]}>
+        <div className={styles["byLine-container"]}>
+          <ByLine userId={story.authorId} />
+        </div>
+        <h2>{story.title}</h2>
+        <p>{truncateBody(story.body)}</p>
+      </div>
       <img src={story.photoUrl} alt={story.title} />
-      <h2>{story.title}</h2>
-      <p>{truncateBody(story.body)}</p>
     </li>
   );
 };
@@ -36,8 +41,10 @@ const SearchResults = () => {
         return (
           <>
             {currentUser ? <SignedInNav /> : <SignedOutNav />}
-            <ul className="search-results-list">
-              <h1>Query Outcomes</h1>
+            <ul className={styles["search-results-list"]}>
+              <h1 className={styles["query-outcomes"]}>
+                Query Outcomes for {searchResults.searchTerm}
+              </h1>
               {stories.length > 0 ? (
                 stories.map((story, i) => (
                   <Link to={`/stories/${story.id}`} key={i}>
