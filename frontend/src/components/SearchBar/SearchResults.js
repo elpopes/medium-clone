@@ -44,7 +44,10 @@ const SearchResults = () => {
             {currentUser ? <SignedInNav /> : <SignedOutNav />}
             <ul className={styles["search-results-list"]}>
               <h1 className={styles["query-outcomes"]}>
-                Query Outcomes for {searchTerm}
+                Query Outcomes for{" "}
+                <span className={styles["query-search-term"]}>
+                  {searchTerm}
+                </span>
               </h1>
               {stories.length > 0 ? (
                 stories.map((story, i) => (
