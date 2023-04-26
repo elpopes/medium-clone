@@ -37,13 +37,14 @@ const SearchResults = () => {
     <SearchContext.Consumer>
       {({ searchResults }) => {
         const stories = searchResults.stories || [];
+        const searchTerm = searchResults.searchTerm || "";
 
         return (
           <>
             {currentUser ? <SignedInNav /> : <SignedOutNav />}
             <ul className={styles["search-results-list"]}>
               <h1 className={styles["query-outcomes"]}>
-                Query Outcomes for {searchResults.searchTerm}
+                Query Outcomes for {searchTerm}
               </h1>
               {stories.length > 0 ? (
                 stories.map((story, i) => (

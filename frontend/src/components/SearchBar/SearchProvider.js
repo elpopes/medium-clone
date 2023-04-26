@@ -11,7 +11,7 @@ const SearchProvider = ({ children }) => {
     try {
       const response = await fetch(`/api/stories/search?query=${query}`);
       const data = await response.json();
-      setSearchResults({ stories: data, searchTerm: query });
+      setSearchResults({ stories: data.stories, searchTerm: query });
     } catch (error) {
       console.error("Error fetching search results:", error);
     }
