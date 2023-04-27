@@ -1,43 +1,46 @@
-import React, { useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 
-export default function AnimateMes({ height, windowWidth }) {
-  const animationDiv = useRef(null);
+const AnimateMes = () => {
+  const message =
+    "ME     ME      ME           ME          ME        ME         ME       ME".repeat(
+      7
+    );
 
-  useEffect(() => {
-    const numMes = 20; // Adjust this value to control the number of "ME"s
-    const minWidth = 650;
-
-    const resizeAnimationContainer = () => {
-      if (windowWidth >= minWidth) {
-        animationDiv.current.style.height = `${height}px`;
+  const generateElements = () => {
+    let elements = [];
+    for (let i = 0; i < message.length; i++) {
+      if (message[i] === " ") {
+        const spaceWidth = Math.floor(Math.random() * 4) + 1;
+        elements.push(
+          <span className="whitespace" key={`whitespace-${i}`}>
+            {new Array(spaceWidth).fill("\u00A0")}
+          </span>
+        );
       } else {
-        animationDiv.current.style.height = "0";
-      }
-    };
-
-    resizeAnimationContainer();
-
-    if (windowWidth >= minWidth) {
-      for (let i = 0; i < numMes; i++) {
-        const me = document.createElement("div");
-        me.classList.add("me");
-        me.textContent = "ME";
-
-        const meWidth = 50; // Adjust this value according to the width set in AnimateMes.css
-        const meHeight = 24; // Adjust this value according to the height set in AnimateMes.css
-        const xPos =
-          Math.random() * (animationDiv.current.clientWidth - meWidth);
-        const yPos = Math.random() * (height - meHeight);
-        me.style.left = `${xPos}px`;
-        me.style.top = `${yPos}px`;
-
-        const delay = Math.floor(Math.random() * 2000);
-        me.style.animationDelay = `${delay}ms`;
-
-        animationDiv.current.appendChild(me);
+        elements.push(
+          <span className="me" key={`me-${i}`}>
+            ME
+          </span>
+        );
       }
     }
-  }, [height, windowWidth]);
+    return elements;
+  };
 
-  return <div className="animation" ref={animationDiv}></div>;
-}
+  const [elements] = useState(generateElements);
+
+  useEffect(() => {
+    const meElements = document.querySelectorAll(".me");
+
+    meElements.forEach((element) => {
+      const randomInterval = Math.floor(Math.random() * 5000) + 6000;
+      setInterval(() => {
+        element.classList.toggle("blink");
+      }, randomInterval);
+    });
+  }, []);
+
+  return <div className="animation-wrapper">{elements}</div>;
+};
+
+export default AnimateMes;

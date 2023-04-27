@@ -51,32 +51,33 @@
   }
 }
 
-.animation {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 600px;
-  height: 100%;
-  overflow: hidden;
-  z-index: -1;
+.animation-wrapper {
+  display: none;
 }
 
-.me {
-  position: absolute;
-  font-size: 1.5rem;
-  font-weight: bold;
+@media (min-width: 1280px) {
+  .animation-wrapper {
+    display: block;
+    top: 0;
+    right: 0;
+    width: 800px;
+  }
+
+  .me {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    display: inline-block;
+    min-width: 50px;
+  }
+
+  .whitespace {
+    font-size: 1.5rem;
+    display: inline-block;
+    min-width: 10px;
+  }
+}
+
+.blink {
   opacity: 0;
-  animation: fadeInOut 2s linear infinite;
-  width: 50px;
-  height: 24px;
-}
-
-@keyframes fadeInOut {
-  0%,
-  100% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
 }
