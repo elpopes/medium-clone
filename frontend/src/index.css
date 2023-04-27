@@ -1,3 +1,10 @@
+@font-face {
+  font-family: "Viking";
+  src: local("Viking"), url("./fonts/VikingNormal-36VL.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   font-family: "Helvetica Neue", sans-serif;
 }
