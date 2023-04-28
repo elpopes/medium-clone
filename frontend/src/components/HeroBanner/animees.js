@@ -3,14 +3,14 @@ import React, { useState, useEffect } from "react";
 const AnimateMes = () => {
   const message =
     "ME     ME      ME           ME          ME        ME         ME       ME".repeat(
-      7
+      6
     );
 
   const generateElements = () => {
     let elements = [];
     for (let i = 0; i < message.length; i++) {
       if (message[i] === " ") {
-        const spaceWidth = Math.floor(Math.random() * 4) + 1;
+        const spaceWidth = Math.floor(Math.random() * 5) + 1;
         elements.push(
           <span className="whitespace" key={`whitespace-${i}`}>
             {new Array(spaceWidth).fill("\u00A0")}
@@ -33,7 +33,7 @@ const AnimateMes = () => {
     const meElements = document.querySelectorAll(".me");
 
     meElements.forEach((element) => {
-      const randomInterval = Math.floor(Math.random() * 5000) + 6000;
+      const randomInterval = Math.floor(Math.random() * 10000) + 3000;
       setInterval(() => {
         element.classList.toggle("blink");
       }, randomInterval);
