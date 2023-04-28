@@ -140,6 +140,10 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.14.0-x86_64-linux)
       racc (~> 1.4)
+    open-uri (0.3.0)
+      stringio
+      time
+      uri
     pg (1.4.5)
     pg_search (2.3.6)
       activerecord (>= 5.2)
@@ -185,10 +189,14 @@ GEM
     reline (0.3.2)
       io-console (~> 0.5)
     spring (4.1.1)
+    stringio (3.0.6)
     thor (1.2.1)
+    time (0.2.2)
+      date
     timeout (0.3.1)
     tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
+    uri (0.12.1)
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
@@ -206,6 +214,7 @@ DEPENDENCIES
   bootsnap
   debug
   jbuilder
+  open-uri
   pg (~> 1.1)
   pg_search
   pry-rails
