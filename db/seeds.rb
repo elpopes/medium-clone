@@ -61,7 +61,7 @@ ApplicationRecord.transaction do
     Avatar.delete_all
     Story.delete_all
     User.delete_all
-    Comment.deleta_all
+    Comment.delete_all
     
     ApplicationRecord.connection.reset_pk_sequence!("avatars")
     ApplicationRecord.connection.reset_pk_sequence!("stories")
