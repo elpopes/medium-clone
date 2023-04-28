@@ -77,12 +77,11 @@ ApplicationRecord.transaction do
           created_at: DateTime.now,
           updated_at: DateTime.now
         )
-      
-        # Create avatar
+
         avatar = Avatar.create!(user: user)
-        downloaded_avatar = open(avatar_url)
+        downloaded_avatar = URI.open(avatar_url) 
         avatar.photo.attach(io: downloaded_avatar, filename: "#{username.parameterize}-avatar.jpg", content_type: downloaded_avatar.content_type)
-      
+    
         user
     end
 
@@ -94,11 +93,10 @@ ApplicationRecord.transaction do
           created_at: DateTime.now,
           updated_at: DateTime.now
         )
-      
-        # Attaching the image to the story
-        downloaded_image = open(image_url)
+
+        downloaded_image = URI.open(image_url)
         story.photo.attach(io: downloaded_image, filename: "#{title.parameterize}.jpg", content_type: downloaded_image.content_type)
-      
+    
         story
     end
 
