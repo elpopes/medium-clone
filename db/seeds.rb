@@ -113,7 +113,8 @@ ApplicationRecord.transaction do
     story_data = [
         {
             title: "Little People, Big Bullies",
-            body: "As an orc, I have seen many different types of bullies, but the ones that stand out the most are the dwarves. They have a reputation for their love of gold and treasure, which has led them to raid our villages and kill innocent creatures in pursuit of their greed. They have no regard for the lives of others, as long as they can get what they want.
+            body: 
+            "As an orc, I have seen many different types of bullies, but the ones that stand out the most are the dwarves. They have a reputation for their love of gold and treasure, which has led them to raid our villages and kill innocent creatures in pursuit of their greed. They have no regard for the lives of others, as long as they can get what they want.
 
             Dwarves are also known for their stubbornness and arrogance. They believe that their way is the only way and will go to great lengths to prove it. I have seen them refuse to negotiate with us for peaceful solutions to disputes, instead choosing to bring in their armies and attack us, leaving us with no other option but to defend ourselves.
             
@@ -125,7 +126,8 @@ ApplicationRecord.transaction do
         },
         {
             title: "Heating Bills: The Real Enemy",
-            body: "As a Dark Lord, I have to constantly worry about the upkeep of my evil fortress. It's not just about maintaining the walls and defenses, but also about ensuring that everything runs smoothly and efficiently. Here are some of the challenges I face in keeping my fortress in top shape.
+            body: 
+            "As a Dark Lord, I have to constantly worry about the upkeep of my evil fortress. It's not just about maintaining the walls and defenses, but also about ensuring that everything runs smoothly and efficiently. Here are some of the challenges I face in keeping my fortress in top shape.
 
             Firstly, the constant need for repairs and maintenance can be overwhelming. With all the battles and sieges that take place, the walls and fortifications are always being damaged. It takes a lot of resources and manpower to keep them in good condition, and it can be difficult to find skilled workers who are willing to work in such a dangerous environment.
 
@@ -144,7 +146,8 @@ ApplicationRecord.transaction do
         },
         {
             title: "Want to Get Fit? Step It Up!",
-            body: "If you're looking for a simple and effective way to get fit, look no further than your stairs! Climbing stairs is a great way to get your heart rate up and build strength in your legs. Here are some examples of great stairs to climb:
+            body: 
+            "If you're looking for a simple and effective way to get fit, look no further than your stairs! Climbing stairs is a great way to get your heart rate up and build strength in your legs. Here are some examples of great stairs to climb:
           
             One of the best staircases to climb is the infamous Cirith Ungol in Mordor. This staircase was built by the Dark Lord Sauron himself and is guarded by his most fearsome minions. Climbing it is a true test of one's strength and endurance.
             
@@ -160,7 +163,8 @@ ApplicationRecord.transaction do
         },
         {
             title: "Not Really My Thing",
-            body: "As a dwarf, I've seen my fair share of underground fortresses, but Dol Guldur is one that I just can't get into. I mean, sure, it's a massive fortress with all the bells and whistles, but there are a few things that just don't sit right with me.
+            body: 
+            "I've seen my fair share of underground fortresses, but Dol Guldur is one that I just can't get into. I mean, sure, it's a massive fortress with all the bells and whistles, but there are a few things that just don't sit right with me.
           
             Firstly, the decor is just plain gloomy. I mean, sure, it's a fortress of evil, but does everything have to be so dark and depressing? I much prefer the colorful and vibrant decor of the Lonely Mountain.
             
@@ -176,7 +180,8 @@ ApplicationRecord.transaction do
         },
         {
             title: "Flags and Crenellations",
-            body: "As an elf with an appreciation for architecture, I have always been fascinated by the design of Minas Tirith. The white stone walls, the winding staircases, the flags and crenellations - every detail is a testament to the skill and ingenuity of its builders.
+            body: 
+            "As an elf with an appreciation for architecture, I have always been fascinated by the design of Minas Tirith. The white stone walls, the winding staircases, the flags and crenellations - every detail is a testament to the skill and ingenuity of its builders.
           
             The first thing that strikes me about Minas Tirith is its impressive size. It towers over the surrounding landscape, with seven levels of walls and fortifications. Each level is wider than the one below it, creating a tiered effect that is both aesthetically pleasing and strategic in terms of defense.
             
@@ -192,7 +197,8 @@ ApplicationRecord.transaction do
         },
         {
             title: "The Trouble with Men",
-            body: "As a hobbit, I have always been fascinated by the larger races of Middle-earth, particularly men. They are such complex creatures, with their endless greed and desire for power. But as much as I admire them, there's no denying that they have their fair share of problems - especially when it comes to their size.
+            body: 
+            "I have always been fascinated by the larger races of Middle-earth, particularly men. They are such complex creatures, with their endless greed and desire for power. But as much as I admire them, there's no denying that they have their fair share of problems - especially when it comes to their size.
           
             The first thing that strikes me about men is their sheer size. They are so big and tall, with limbs like tree trunks and hands the size of my head. And with their size comes a whole host of problems. For one thing, they break furniture. I can't tell you how many times I've seen a man sit down on a chair, only to have it collapse under his weight.
             
@@ -206,7 +212,8 @@ ApplicationRecord.transaction do
         },
         {
             title: "Dealing with Pesky Pests",
-            body: "As a hobbit with a love for cleanliness and order, I have had my fair share of encounters with pesky pests. From mice in the pantry to moths in the wardrobe, these little critters can wreak havoc on a hobbit's home. But fear not, my dear readers, for I have some tips and tricks for dealing with even the peskiest of pests.
+            body: 
+            "I have had my fair share of encounters with pesky pests. From mice in the pantry to moths in the wardrobe, these little critters can wreak havoc on a hobbit's home. But fear not, my dear readers, for I have some tips and tricks for dealing with even the peskiest of pests.
 
             Firstly, for mice and other small rodents, I recommend setting out traps or investing in a good cat. Cats are natural hunters and will take care of any rodents in no time.
 
@@ -221,7 +228,8 @@ ApplicationRecord.transaction do
 
         {
             title: "Ales of the Green Dragon",
-            body: "As a hobbit with a love for good food and drink, I have spent many a night sampling the ales and meads at the Green Dragon. And let me tell you, my dear readers, there are some truly excellent brews to be had.
+            body: 
+            "As a hobbit with a love for good food and drink, I have spent many a night sampling the ales and meads at the Green Dragon. And let me tell you, my dear readers, there are some truly excellent brews to be had.
 
             Firstly, there's the classic Hobbiton Ale - a smooth, nutty brew that pairs perfectly with a hearty meal.
 
@@ -237,7 +245,8 @@ ApplicationRecord.transaction do
         },
         {
             title: "Me Loves Gold",
-            body: "It's no secret that I, Thror, King Under the Mountain, love gold more than anything else in Middle-earth. But it's not just the shine and glitter that gets me going. It's the way that gold represents power and prestige, and the way it can be used to make great works of art and architecture.
+            body: 
+            "It's no secret that I, Thror, King Under the Mountain, love gold more than anything else in Middle-earth. But it's not just the shine and glitter that gets me going. It's the way that gold represents power and prestige, and the way it can be used to make great works of art and architecture.
 
             You see, my dear readers, I don't just hoard gold for the sake of hoarding. I use it to create great works of beauty, like the halls of Erebor and the treasure troves of the Lonely Mountain.
 
@@ -250,7 +259,8 @@ ApplicationRecord.transaction do
 
         {
             title: "The Shire: Middle-earth's Silicon Valley",
-            body: "When you think of the Shire, you probably picture quaint hobbit holes and rolling green hills. But what you may not know is that the Shire is quickly becoming the go-to destination for tech companies and startups in Middle-earth.
+            body: 
+            "When you think of the Shire, you probably picture quaint hobbit holes and rolling green hills. But what you may not know is that the Shire is quickly becoming the go-to destination for tech companies and startups in Middle-earth.
 
             With its peaceful countryside and friendly inhabitants, the Shire offers the perfect environment for creative thinking and innovation. Plus, the hobbits have a natural talent for inventing and tinkering, making them valuable assets to any tech company.
 
@@ -265,7 +275,8 @@ ApplicationRecord.transaction do
 
         {
             title: "There Goes the Neighborhood",
-            body: "As a proud dwarf of Khazad-dum, I have seen firsthand the devastating effects that orcs can have on a neighborhood. They bring down property values, they make a mess of everything, and worst of all, they don't even have the decency to clean up after themselves.
+            body: 
+            "As a proud dwarf of Khazad-dum, I have seen firsthand the devastating effects that orcs can have on a neighborhood. They bring down property values, they make a mess of everything, and worst of all, they don't even have the decency to clean up after themselves.
           
             Take Khazad-dum for example. It used to be a thriving community, full of hardworking dwarves and beautiful architecture. But then the orcs moved in, and everything went to hell. They tore down buildings, defaced artwork, and left trash and debris everywhere.
             
@@ -279,8 +290,9 @@ ApplicationRecord.transaction do
           },
           
           {
-            title: "Ode to me Bow'd",
-            body: "Oh me bow'd, how sweet thee be,
+            title: "Ode to me Bow'd, and yon arrows, too",
+            body: 
+            "Oh me bow'd, how sweet thee be,
             An extension of my arm, thee set me free.
             
             From Rivendell to Mirkwood, I draw me bow,
@@ -293,16 +305,16 @@ ApplicationRecord.transaction do
             Me bow'd, I owe me victories to you.
             
             So here's to me bow'd, my trusted friend,
-            Together we shall fight until the end.
-            
-            In conclusion, there is no greater joy for a skilled archer than the feeling of drawing back the string of their bow and unleashing a swift and deadly arrow.",
+            Together we shall fight until the end.",
+
             author_username: "legolas_greenleaf",
             image_url: story_image_urls[11]
           },
 
           {
             title: "Trees Should Be Free To Marry Who They Want",
-            body: "Hello, my dear human friends! I, Treebeard, have a question for you. Why can't trees get married? Is it because we don't have opposable thumbs to exchange rings? Or maybe it's because we don't have mouths to say our vows? I think it's all just a bunch of nonsense! Trees should be free to marry whoever they want, from mighty oaks to humble saplings. 
+            body: 
+            "Why can't trees get married? Is it because we don't have opposable thumbs to exchange rings? Or maybe it's because we don't have mouths to say our vows? I think it's all just a bunch of nonsense! Trees should be free to marry whoever they want, from mighty oaks to humble saplings. 
         
             Think about it, my friends. We trees have been around for thousands of years, longer than any human civilization. We've seen empires rise and fall, wars rage, and peace flourish. And yet, we've never been able to experience the joy of love and companionship with our own kind. It's just not fair!
             
@@ -314,7 +326,8 @@ ApplicationRecord.transaction do
         },
         {
             title: "The Geological Side-Effects of Taking Over the World",
-            body: "Greetings, fellow geology enthusiasts! I, Boromir of Denethor, have some shocking news to share with you. Did you know that taking over the world has some serious geological side-effects? Yes, that's right! 
+            body: 
+            "Greetings, fellow geology enthusiasts! I, Boromir of Denethor, have some shocking news to share with you. Did you know that taking over the world has some serious geological side-effects? Yes, that's right! 
 
             You see, when humans take over the world, they inevitably leave their mark on it. And not just any mark, mind you. We're talking mountains of discarded fast food wrappers, rivers of melted ice cream, and landfills overflowing with discarded plastic toys. It's enough to make a geologist's heart skip a beat.
 
@@ -328,7 +341,8 @@ ApplicationRecord.transaction do
         },
         {
             title: "The Untapped Possibilities of Geo-Thermal Power in Middle-Earth",
-            body: "Greetings, fellow Middle-Earthers! I, Boromir of Denethor, have been doing some thinking about the untapped potential of geothermal power in our beloved land. Did you know that beneath our very feet lies a source of energy that could power our homes and cities for centuries to come?
+            body: 
+            "I have been doing some thinking about the untapped potential of geothermal power in our beloved land. Did you know that beneath our very feet lies a source of energy that could power our homes and cities for centuries to come?
 
             It's true! Geothermal power harnesses the heat that is naturally produced by the earth's core to create electricity. And in Middle-Earth, where volcanoes and hot springs are commonplace, we have a prime opportunity to take advantage of this technology.
 
@@ -341,7 +355,8 @@ ApplicationRecord.transaction do
 
         {
             title: "Water-Features: Let the Good Times Flow",
-            body: "Welcome, my dear friends, to the world of water-features! I, Arwen Evenstar, have always had a passion for the soothing sounds of water and the way it can transform any space into a peaceful oasis. And in Middle-Earth, where water is plentiful and beautiful landscapes abound, there is no shortage of opportunities to incorporate water-features into our homes and gardens.
+            body: 
+            "Welcome, my dear friends, to the world of water-features! I have always had a passion for the soothing sounds of water and the way it can transform any space into a peaceful oasis. And in Middle-Earth, where water is plentiful and beautiful landscapes abound, there is no shortage of opportunities to incorporate water-features into our homes and gardens.
             
             Picture it, my friends. A beautiful fountain in the center of your courtyard, with water spouting from the mouths of elegant statues. A serene koi pond in your backyard, filled with vibrant fish and surrounded by lush greenery. A waterfall cascading down the side of a cliff, creating a misty atmosphere that transports you to another world.
             
@@ -354,7 +369,8 @@ ApplicationRecord.transaction do
 
         {
             title: "Shelom with Shelob: A New Silk Row",
-            body: "Greetings, my dear Middle-Earthers! I, Galadriel, have a proposal for you. What if we could create a new silk row with none other than Shelob, the giant spider who resides in the tunnels of Cirith Ungol?
+            body: 
+            "What if we could create a new silk row with none other than Shelob, the giant spider who resides in the tunnels of Cirith Ungol?
 
             I know what you're thinking. 'Galadriel, are you mad? Shelob is a fearsome creature who devours her prey without mercy!' But hear me out, my friends. Shelob is also a master weaver, and her silk is said to be of the highest quality.
 
@@ -368,7 +384,8 @@ ApplicationRecord.transaction do
 
         {
             title: "Lost: Wedding Ring",
-            body: "Greetings, fellow Middle-Earthers! I, Sauron the Dark Lord, have a pressing question for you. Has anyone seen my wedding ring?
+            body: 
+            "Has anyone seen my wedding ring?
 
             Yes, that's right. My wedding ring. It's gold, with a single, precious stone. And it's definitely not the One Ring to rule them all. I know what you're thinking, 'But Sauron, you don't have a wife!' And to that, I say, 'It's complicated.' Let's just say I like to keep my options open.
 
@@ -381,7 +398,8 @@ ApplicationRecord.transaction do
 
         {
             title: "Trees Aint Frees",
-            body: "Greetings, my dear Middle-Earthers! I, Galadriel, have a confession to make. Taking care of the two giant trees of Valinor - Telperion and Laurelin - is not as easy as it looks.
+            body: 
+            "I, Galadriel, have a confession to make. Taking care of the two giant trees of Valinor - Telperion and Laurelin - is not as easy as it looks.
 
             Sure, they may be beautiful, with their golden and silver leaves and the light they emit that illuminates all of Valinor. But have you ever tried to prune a tree that's hundreds of feet tall? Or deal with the constant squabbling between Telperion and Laurelin over which one is better?
 
@@ -396,7 +414,8 @@ ApplicationRecord.transaction do
 
         {
             title: "Valmar: Hell's Bells",
-            body: "Greetings, my fellow Middle-Earthers! I, The Grey, have a bone to pick with all those who extol the virtues of Valmar. Sure, it may seem like a paradise, with its beautiful gardens, sparkling fountains, and golden streets. But have you ever tried to get a good night's sleep in that place?
+            body: 
+            "I have a bone to pick with all those who extol the virtues of Valmar. Sure, it may seem like a paradise, with its beautiful gardens, sparkling fountains, and golden streets. But have you ever tried to get a good night's sleep in that place?
 
             I'm talking about the bells, my friends. The incessant, never-ending ringing of the bells that seems to pervade every inch of Valmar. It's enough to drive anyone mad! And don't even get me started on the crowds. It seems like every elf, Vala, and Maiar in Middle-Earth has flocked to Valmar, making it nearly impossible to get anywhere without being jostled and shoved.
 
@@ -408,41 +427,105 @@ ApplicationRecord.transaction do
         },
 
         {
-            title: "Story 21: Placeholder Title",
-            body: "Words: 1 2 3 4 5",
+            title: "Minas Tirith: Tourists Welcome",
+            body: 
+            "Greetings, my fellow Middle-Earthers! I, Aragorn, have a message for you. If you're looking for a kingdom to visit that's rich in history and culture, come to Minas Tirith.
+            
+            Now, I know what you're thinking. 'But Aragorn, isn't Minas Tirith still recovering from the war?' Yes, it is. But that doesn't mean it's not worth a visit. In fact, I would argue that the scars of the war make our city even more beautiful and meaningful.
+            
+            Take a walk through the White City and you'll see the remnants of the battles we fought, the sacrifices we made. But you'll also see the resilience and determination of our people, who have rebuilt their homes and their lives from the ashes.
+            
+            And let's not forget the sights. From the breathtaking view of the Pelennor Fields from the top of the city walls, to the grandeur of the Citadel and the beauty of the gardens of the Houses of Healing, Minas Tirith has something for everyone.
+            
+            So come, my friends, and experience the warmth and hospitality of our people, the richness of our history, and the beauty of our city. Minas Tirith: Tourists Welcome!",
             author_username: "aragorn",
             image_url: story_image_urls[20]
         },
         {
-            title: "Story 22: Placeholder Title",
-            body: "Words: 1 2 3 4 5",
-            author_username: "samwise_gamgee",
+            title: "Maintaining Healthy Hobbit Feet",
+            body: 
+            "Feet are an essential part of a hobbit's anatomy. They are what allow us to travel long distances, climb steep hills, and generally go about our daily lives. As such, it is important to take good care of them.
+        
+            One of the biggest challenges hobbits face when it comes to foot maintenance is deciding whether or not to shave their feet. While some hobbits prefer a smooth, hairless look, others argue that the hair on our feet serves a purpose - to protect against cuts, scrapes, and other injuries.
+            
+            Another common issue hobbits face is maintaining wide feet. Let's face it, our feet are not exactly dainty. But that doesn't mean we should neglect them. Regular foot massages, soaking in warm water with Epsom salts, and wearing shoes that fit properly can all help to keep our feet healthy and happy.
+            
+            And let's not forget about toenail care. It may not be the most glamorous topic, but it's an important one. Regular trimming and cleaning can prevent ingrown toenails, fungal infections, and other unsavory foot issues.
+            
+            So there you have it, my fellow hobbits. Maintaining healthy feet may not be the most exciting topic, but it is a crucial one. Take care of your feet, and they will take care of you.",
+            author_username: "frodo_baggins",
             image_url: story_image_urls[21]
         },
         {
-            title: "Story 23: Placeholder Title",
-            body: "Words: 1 2 3 4 5",
-            author_username: "merry_brandybuck",
+            title: "Gone Fishing: Friendship Over Flounder",
+            body: 
+            "They say that true friendship can be found in unexpected places. I never believed it until I met Smeagol.
+        
+            Now, I know what you're thinking. 'Sam, isn't Smeagol the creature who tried to steal the Ring from Frodo?' Yes, he is. But he's also much more than that. He's a complex individual, with hopes and fears and a love of fishing.
+            
+            It was on an impromptu fishing excursion that Smeagol and I first bonded. I never would have thought that the creature who once tried to strangle me would become a dear friend, but there we were, sitting by the river, casting our lines and enjoying each other's company.
+            
+            We talked about everything under the sun - our hopes for the future, our fears about what lay ahead, and, of course, our favorite fishing spots. And when we caught our first flounder, we both cheered like we had won the lottery.
+            
+            In that moment, it didn't matter that Smeagol was a creature of darkness, or that I was a simple hobbit. We were just two friends, enjoying each other's company and the thrill of the catch.
+            
+            So the next time you think that true friendship is out of reach, just remember - it can be found in unexpected places. Even on the banks of a river, with a fishing rod in hand. Gone Fishing: Friendship Over Flounder, and that's the truth.",
+            author_username: "samwise_gamgee",
             image_url: story_image_urls[22]
         },
         {
-            title: "Story 24: Placeholder Title",
-            body: "Words: 1 2 3 4 5",
-            author_username: "peregrin_took",
+            title: "Capes: Are They Fit or Fad?",
+            body: 
+            "As a fashionista with centuries of experience, I have seen many trends come and go. But none have caused as much debate as the cape.
+
+            Some characters, such as Aragorn and Thorin Oakenshield, have donned the cape with confidence and panache. Others, such as Legolas and Gandalf, have eschewed the cape altogether, preferring a more streamlined look.
+
+            But the question remains - are capes a fit or a fad? Personally, I believe that it depends on the wearer. A cape can add drama and flair to an outfit, but only if worn with the proper attitude.
+
+            Some characters, such as Boromir, tried to pull off the cape but ended up looking like they were wearing a glorified poncho. Others, such as Gimli, never even attempted to wear a cape, preferring to let their armor speak for itself.
+
+            But I digress. The point is, capes have their place in fashion, but only if worn with confidence and style. So the next time you're considering adding a cape to your wardrobe, ask yourself - am I a Thorin Oakenshield or a Boromir? Capes: Are They Fit or Fad? You be the judge.",
+            author_username: "elrond",
             image_url: story_image_urls[23]
         },
         {
-            title: "Story 25: Placeholder Title",
-            body: "Words: 1 2 3 4 5",
-            author_username: "legolas_greenleaf",
+            title: "Potion or Poison? The Importance of Proper Labeling Practices",
+            body: 
+            "I have spent countless hours concocting potions and elixirs of all sorts. But let me tell you, there is nothing more frustrating than reaching for a jar of what you think is unicorn hair only to find out that it's actually bat guano.
+        
+            I learned this lesson the hard way, many years ago. I had just finished brewing a particularly potent potion and was in a rush to get it to a colleague who was in dire need. In my haste, I forgot to label the jar. Long story short, my colleague ended up growing a third arm and I spent the next week trying to reverse the effects of my mistake.
+            
+            That experience taught me the importance of proper labeling practices. When it comes to potions, vials, and barrels, a clear and concise label can mean the difference between a life-saving elixir and a deadly poison.
+            
+            But labeling is not just about preventing accidents - it's also about ensuring that your potions and elixirs are used properly. I once received a bottle of what I thought was a healing potion, but turned out to be a powerful sleeping draught. Needless to say, that mistake did not end well.
+            
+            So here are a few best practices for proper labeling: always label the container clearly, indicating the name of the potion, the date it was brewed, and any important instructions or warnings. For vials, use small but legible labels that won't get in the way. And for barrels, consider using a hanging tag for easy identification.
+            
+            And finally, don't forget about expiration dates and allergic reactions. Always check the label before using a potion, and if in doubt, consult with a knowledgeable wizard or healer.
+            
+            In conclusion, proper labeling practices may seem like a small detail, but they can make a big difference in the world of wizardry. So remember, potion or poison? The choice is yours - but make sure you label it correctly.",
+            author_username: "theGrey",
             image_url: story_image_urls[24]
         },
         {
-            title: "Story 26: Placeholder Title",
-            body: "Words: 1 2 3 4 5",
-            author_username: "gimli_son_of_gloin",
+            title: "It's Like a Whole Race Of Napoleons",
+            body: 
+            "As an orc, I have had my fair share of battles with dwarves. And let me tell you, they are a race of short, stubborn bullies who seem to have a Napoleon complex.
+        
+            I can't count how many times I've heard stories of my fellow orcs being killed by these so-called 'mighty warriors'. They may be small in stature, but they make up for it in brute force and sheer determination. It's like they have something to prove - as if being short wasn't enough of a disadvantage.
+            
+            Take Gimli, for example. He's constantly boasting about his strength and skill with an axe, but let's be real - he's compensating for his height. And don't even get me started on Thorin Oakenshield and his merry band of dwarves. They think they're so tough, but in reality, they're just a bunch of short guys with a chip on their shoulder.
+            
+            I've lost count of the number of friends and colleagues who have been killed by dwarves. Whether it's in battle or a surprise attack, these Napoleonic bullies seem to relish in the slaughter of their enemies.
+            
+            So what's the solution? Well, for starters, maybe the dwarves could try being a little less aggressive and a little more diplomatic. And maybe they could focus on building things instead of destroying them.
+            
+            But let's be honest, that's unlikely to happen. The dwarves seem to be set in their ways, and they're not going to change anytime soon. So all we can do is be prepared for their next attack and hope that one day, they'll realize that there's more to life than killing orcs.
+            
+            In conclusion, the dwarves may be a formidable foe, but they're also a race of short bullies who overcompensate for their height. So the next time you see a dwarf, just remember - it's like a whole race of Napoleons.",
+            author_username: "murgash",
             image_url: story_image_urls[25]
-        }
+        },
     ]
 
     story_data.each do |story_info|
