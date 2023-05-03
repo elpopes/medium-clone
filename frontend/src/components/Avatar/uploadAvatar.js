@@ -35,13 +35,15 @@ const UploadAvatar = ({ setNewAvatar }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData();
-    formData.append("avatar[id]", currentAvatar?.id || "");
     formData.append("avatar[user_id]", currentUser.id);
+
+    let requestMethod = "POST"; // Default to POST
 
     if (photoFile) {
       if (currentAvatar) {
         formData.append("_method", "PATCH");
         formData.append("avatar[id]", currentAvatar.id);
+        requestMethod = "PATCH"; // Update request method to PATCH
         window.location.reload();
       }
       formData.append("avatar[photo]", photoFile);
@@ -53,7 +55,7 @@ const UploadAvatar = ({ setNewAvatar }) => {
     }
 
     const response = await csrfFetch("/api/avatars", {
-      method: "POST",
+      method: requestMethod, // Use the correct request method
       body: formData,
     });
     if (response.ok) {
@@ -64,15 +66,15 @@ const UploadAvatar = ({ setNewAvatar }) => {
       setImageUrls([]);
       setNewAvatar(avatar);
       fileRef.current.value = null;
-      //   window.location.reload();
+      // window.location.reload();
     }
   };
 
   let preview = null;
-  if (currentAvatar && currentAvatar.photoUrl) {
-    preview = <img src={currentAvatar.photoUrl} alt="" />;
-  } else if (photoUrl) {
+  if (photoUrl) {
     preview = <img src={photoUrl} alt="" />;
+  } else if (currentAvatar && currentAvatar.photoUrl) {
+    preview = <img src={currentAvatar.photoUrl} alt="" />;
   } else if (imageUrls.length !== 0) {
     preview = imageUrls.map((url) => {
       return <img key={url} src={url} alt="" />;

@@ -8,6 +8,20 @@ class Api::AvatarsController < ApplicationController
       @avatar = Avatar.find_by(user_id: params[:id])
       render :show
     end
+
+    def update
+        user = User.find(params[:avatar][:user_id])
+        avatar = user.avatar
+      
+        if avatar.update(avatar_params)
+          if params[:avatar][:photo]
+            avatar.photo.attach(params[:avatar][:photo])
+          end
+          render :show
+        else
+          render json: avatar.errors, status: :unprocessable_entity
+        end
+    end
   
     def create
       user = User.find(params[:avatar][:user_id])  
