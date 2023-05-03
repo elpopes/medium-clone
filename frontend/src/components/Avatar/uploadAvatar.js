@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { useSelector } from "react-redux";
 import csrfFetch from "../../store/csrf";
 
-const UploadAvatar = ({ setNewAvatar }) => {
+const UploadAvatar = ({ setNewAvatar, setShowModal2 }) => {
   const [photoFile, setPhotoFile] = useState(null);
   const [photoUrl, setPhotoUrl] = useState(null);
   const [imageFiles, setImageFiles] = useState([]);
@@ -10,6 +10,10 @@ const UploadAvatar = ({ setNewAvatar }) => {
   const fileRef = useRef(null);
   const [currentAvatar, setCurrentAvatar] = useState(null);
   const currentUser = useSelector((state) => state.session.user);
+  const handleCancel = (e) => {
+    e.stopPropagation();
+    setShowModal2(false);
+  };
 
   useEffect(() => {
     async function fetchData() {
@@ -37,12 +41,12 @@ const UploadAvatar = ({ setNewAvatar }) => {
     const formData = new FormData();
     formData.append("avatar[user_id]", currentUser.id);
 
-    let requestMethod = "POST"; // Default to POST
+    let requestMethod = "POST";
 
     if (photoFile) {
       if (currentAvatar) {
         formData.append("_method", "PATCH");
-        requestMethod = "PATCH"; // Update request method to PATCH
+        requestMethod = "PATCH";
         window.location.reload();
       }
       formData.append("avatar[photo]", photoFile);
@@ -58,7 +62,7 @@ const UploadAvatar = ({ setNewAvatar }) => {
         ? `/api/avatars/${currentAvatar.id}`
         : "/api/avatars",
       {
-        method: requestMethod, // Use the correct request method
+        method: requestMethod,
         body: formData,
       }
     );
@@ -71,20 +75,19 @@ const UploadAvatar = ({ setNewAvatar }) => {
       setImageUrls([]);
       setNewAvatar(avatar);
       fileRef.current.value = null;
-      // window.location.reload();
     }
   };
 
   let preview = null;
   if (photoUrl) {
-    preview = <img src={photoUrl} alt="" style={{ maxHeight: "500px" }} />;
+    preview = <img src={photoUrl} alt="" style={{ maxHeight: "400px" }} />;
   } else if (currentAvatar && currentAvatar.photoUrl) {
     preview = (
-      <img src={currentAvatar.photoUrl} alt="" style={{ maxHeight: "500px" }} />
+      <img src={currentAvatar.photoUrl} alt="" style={{ maxHeight: "400px" }} />
     );
   } else if (imageUrls.length !== 0) {
     preview = imageUrls.map((url) => {
-      return <img key={url} src={url} alt="" style={{ maxHeight: "500px" }} />;
+      return <img key={url} src={url} alt="" style={{ maxHeight: "400px" }} />;
     });
   }
 
@@ -98,6 +101,9 @@ const UploadAvatar = ({ setNewAvatar }) => {
       <h3>Image preview</h3>
       {preview}
       <button>Upload your photo</button>
+      <button type="button" onClick={(e) => handleCancel(e)}>
+        Cancel
+      </button>
     </form>
   );
 };

@@ -3,10 +3,8 @@ import { useSelector } from "react-redux";
 import { Modal } from "../../context/Modal";
 import EditUser from "./EditUser";
 import "./Account.css";
-// import EditPhoto from "./EditPhoto";
 import SignedInNav from "../signedInNav";
 import { Redirect } from "react-router-dom";
-// import EditUsername from './EditUsername';
 import UploadAvatar from "../Avatar/uploadAvatar";
 
 function Account() {
@@ -38,7 +36,6 @@ function Account() {
                     setShowModal1(false);
                   }
                 }}
-                // onClose={() => setShowModal1(false)}
               >
                 <EditUser />
               </Modal>
@@ -53,7 +50,7 @@ function Account() {
             <div className="account-info-data">{sessionUser.photoUrl}</div>
             {showModal2 && (
               <Modal onClose={() => setShowModal2(false)}>
-                <UploadAvatar />
+                <UploadAvatar setShowModal2={setShowModal2} />
               </Modal>
             )}
           </div>
