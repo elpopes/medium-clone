@@ -77,12 +77,14 @@ const UploadAvatar = ({ setNewAvatar }) => {
 
   let preview = null;
   if (photoUrl) {
-    preview = <img src={photoUrl} alt="" />;
+    preview = <img src={photoUrl} alt="" style={{ maxHeight: "500px" }} />;
   } else if (currentAvatar && currentAvatar.photoUrl) {
-    preview = <img src={currentAvatar.photoUrl} alt="" />;
+    preview = (
+      <img src={currentAvatar.photoUrl} alt="" style={{ maxHeight: "500px" }} />
+    );
   } else if (imageUrls.length !== 0) {
     preview = imageUrls.map((url) => {
-      return <img key={url} src={url} alt="" />;
+      return <img key={url} src={url} alt="" style={{ maxHeight: "500px" }} />;
     });
   }
 
