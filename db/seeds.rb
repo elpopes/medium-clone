@@ -58,15 +58,15 @@ ApplicationRecord.transaction do
     puts "Destroying tables..."
   
     # Unnecessary if using `rails db:seed:replant`
+    Comment.delete_all
     Avatar.delete_all
     Story.delete_all
     User.delete_all
-    Comment.delete_all
     
+    ApplicationRecord.connection.reset_pk_sequence!("comments")
     ApplicationRecord.connection.reset_pk_sequence!("avatars")
     ApplicationRecord.connection.reset_pk_sequence!("stories")
     ApplicationRecord.connection.reset_pk_sequence!("users")
-    ApplicationRecord.connection.reset_pk_sequence!("comments")
 
 
     puts "Creating users..."
