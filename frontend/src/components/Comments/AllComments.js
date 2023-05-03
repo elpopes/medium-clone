@@ -7,7 +7,7 @@ const AllComments = ({ storyId }) => {
   const storyComments = useSelector(
     (state) => state.stories[storyId]?.comments
   );
-  const session = useSelector((state) => state.session);
+  const user = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
 
   const comments = storyComments ? storyComments : [];
@@ -25,11 +25,14 @@ const AllComments = ({ storyId }) => {
       {comments.length > 0 ? (
         <ul>
           {comments.map((comment) => {
-            const isAuthor = comment.comment_author_id === session.user.id;
+            // Check if the current user is the author of the comment
+            const isAuthor = user && comment.comment_author_id === user.id;
             return (
               <li key={comment.id}>
                 <div className="comment-container">
-                  <ByLine userId={comment.commentAuthor.id} />
+                  {/* Render the ByLine component only when the user is logged in */}
+                  {user && <ByLine userId={comment.commentAuthor.id} />}
+                  {/* Render the comment options only when the user is the author */}
                   {isAuthor && (
                     <span
                       className="comment-options"

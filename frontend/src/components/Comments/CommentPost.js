@@ -3,15 +3,19 @@ import { useSelector, useDispatch } from "react-redux";
 import ByLine from "../Avatar/byLine";
 import { createComment } from "../../store/storiesReducer";
 import { updateComment } from "../../store/storiesReducer";
+import { Modal } from "../../context/Modal"; // Import Modal
+import SignUpForm from "../SignUpForm"; // Import SignUpForm
 
 const CommentPost = ({ storyId, parentId, comment }) => {
-  const authorId = useSelector((state) => state.session.user?.id);
+  const user = useSelector((state) => state.session.user);
+  const authorId = user?.id;
   const dispatch = useDispatch();
   const [body, setBody] = useState(
     comment ? comment.body : "What are ye thoughts?"
   );
 
   const [inputColor, setInputColor] = useState("grey");
+  const [showModal, setShowModal] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -37,6 +41,11 @@ const CommentPost = ({ storyId, parentId, comment }) => {
   };
 
   const handleFocus = () => {
+    if (!user) {
+      setShowModal(true);
+      return;
+    }
+
     if (body === "What are ye thoughts?") {
       setBody("");
     }
@@ -68,6 +77,11 @@ const CommentPost = ({ storyId, parentId, comment }) => {
         </div>
         <button type="submit">Submit</button>
       </form>
+      {showModal && (
+        <Modal onClose={() => setShowModal(false)}>
+          <SignUpForm />
+        </Modal>
+      )}
     </div>
   );
 };
