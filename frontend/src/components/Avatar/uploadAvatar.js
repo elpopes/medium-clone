@@ -42,7 +42,6 @@ const UploadAvatar = ({ setNewAvatar }) => {
     if (photoFile) {
       if (currentAvatar) {
         formData.append("_method", "PATCH");
-        formData.append("avatar[id]", currentAvatar.id);
         requestMethod = "PATCH"; // Update request method to PATCH
         window.location.reload();
       }
@@ -54,10 +53,16 @@ const UploadAvatar = ({ setNewAvatar }) => {
       });
     }
 
-    const response = await csrfFetch("/api/avatars", {
-      method: requestMethod, // Use the correct request method
-      body: formData,
-    });
+    const response = await csrfFetch(
+      requestMethod === "PATCH"
+        ? `/api/avatars/${currentAvatar.id}`
+        : "/api/avatars",
+      {
+        method: requestMethod, // Use the correct request method
+        body: formData,
+      }
+    );
+
     if (response.ok) {
       const avatar = await response.json();
       setPhotoFile(null);
